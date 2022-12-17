@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     },
     register_text: {
       color: "#FFFFFF",
+      fontWeight: "bold"
     },
     input: {
       marginTop: "1%",

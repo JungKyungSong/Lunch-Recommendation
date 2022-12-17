@@ -79,9 +79,11 @@ const styles = StyleSheet.create({
   },
   login_text: {
     color: "#FFFFFF",
+    fontWeight: "bold"
   },
   register_text: {
     color: "#2B82D4",
+    fontWeight: "bold"
   }
 });
 
