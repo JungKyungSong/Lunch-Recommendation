@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Mypage from './components/Mypage';
 import Start from './components/Start';
+import Info from './components/Info';
 import Cafeteria from './components/Cafeteria';
 import Category from './components/Category';
 import Restaurant from './components/Restaurant';
@@ -30,6 +31,7 @@ function App () {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Mypage" component={Mypage} />
         <Stack.Screen name="Start" component={Start} />
+        <Stack.Screen name="Info" component={Info} />
         <Stack.Screen name="Cafeteria" component={Cafeteria} />
         <Stack.Screen name="Category" component={Category} />
         <Stack.Screen name="Restaurant" component={Restaurant} />

@@ -9,17 +9,17 @@ import {
   Alert,
 } from 'react-native';
 
-function Mypage({ navigation }) {
+function Info({ navigation }) {
     return (
         <SafeAreaView>
-            <Text>START</Text>
+            <Text>INFO</Text>
             <TouchableOpacity
-                onPress={() => navigation.navigate("Info")}
+                onPress={() => navigation.navigate("Cafeteria")}
             >
-            <Text>시작하기</Text>
+            <Text>다음</Text>
             </TouchableOpacity>
         </SafeAreaView>
     );
 }
 
-export default Mypage;
+export default Info;
