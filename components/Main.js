@@ -17,7 +17,7 @@ function Main ({ navigation }) {
       <StatusBar style="auto"/>
       <ImageBackground source={main} style={styles.image}>
         <View>
-        <Text style={styles.title}>대면수업,{"\n"}뭐 먹지?</Text> 
+          <Text style={styles.title}>대면수업,{"\n"}뭐 먹지?</Text> 
         </View>
         <TouchableOpacity
           onPress={() => navigation.navigate("Login")}
@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     width: "80%",
     height: "6%",
     marginTop: "92%",
-    marginHorizontal: "10%"
+    marginHorizontal: "10%",
+    borderRadius: 5,
   },
   register_btn: {
     backgroundColor: "#FFFFFF",
@@ -71,7 +72,10 @@ const styles = StyleSheet.create({
     width: "80%",
     height: "6%",
     marginTop: "5%",
-    marginHorizontal: "10%"
+    marginHorizontal: "10%",
+    borderColor: "#92BEE7",
+    borderWidth: 1,
+    borderRadius: 5,
   },
   login_text: {
     color: "#FFFFFF",
