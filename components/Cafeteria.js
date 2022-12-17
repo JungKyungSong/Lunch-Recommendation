@@ -98,6 +98,9 @@ const styles = StyleSheet.create({
         left: 240,
         //right:0,
     },
+    cf_container:{
+
+    },
     cf_each:{
         backgroundColor: "blue",
         width: "100%",
