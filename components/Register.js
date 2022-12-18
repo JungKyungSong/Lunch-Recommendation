@@ -41,6 +41,7 @@ function Register({ navigation }) {
 
     return (
          <View style={styles.container}>
+          <StatusBar style="auto"/>
             <ImageBackground source={login_register} style={styles.image}>
                 <View>
                     <Text style={styles.title}>회원가입</Text>

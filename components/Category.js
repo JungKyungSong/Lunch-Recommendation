@@ -16,6 +16,7 @@ const Category = ({navigation}) => {
     return (
     
         <SafeAreaView style={styles.container}>
+          <StatusBar style="auto"/>
              <Text style={styles.title}>원하는 음식점 찾기</Text>           
             <View style={styles.login_container}>
             

@@ -14,6 +14,7 @@ import start from "../images/start.png"
 function Start({ navigation }) {
     return (
         <View style={styles.container}>
+            <StatusBar style="auto"/>
             <ImageBackground source={start} style={styles.image}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate("Info")}

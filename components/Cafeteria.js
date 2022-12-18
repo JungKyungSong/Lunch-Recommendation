@@ -12,7 +12,7 @@ import {
   ScrollView,
 } from 'react-native';
 import cafeteria from "../images/cafeteria.png";
-import univ from "../images/univ.png";
+import yonsei from "../images/yonsei.png";
 
 function Cafeteria({ navigation }) {
 
@@ -26,7 +26,16 @@ function Cafeteria({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={univ} style={styles.bg_image}>
+            <StatusBar style="auto"/>
+            <ImageBackground source={yonsei} style={styles.bg_image}>
+                <View style={styles.title_container}>
+                    <View>
+                        <Text style={styles.title}>오늘의 연세대 학식</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.subtitle}>신촌캠퍼스</Text>
+                    </View>
+                </View>
                 <ScrollView 
                     style={styles.scroll_container}
                     contentContainerStyle={{ flexGrow: 1 }}
@@ -109,27 +118,24 @@ const styles = StyleSheet.create({
         marginLeft: "20%",
         marginRight: "-10%"
     },
+    title_container: {
+        flexDirection: "row",
+    },
     title: {
         fontSize: 28,
         fontWeight: "bold",
         color: "#FFFFFF",
-        position: "absolute",
-        top: 190,
-        //bottom:0,
-        left: 20,
-        //right:0,
+        marginTop: "65%",
+        marginLeft: "8%"
     },
     subtitle: {
         fontSize: 20,
-        color: "#FFFFFF",
-        position: "absolute",
-        top: 203,
-        //bottom:0,
-        left: 240,
-        //right:0,
+        color: "#E6E6E6",
+        marginTop: "160%",
+        marginLeft: "4%"
     },
     scroll_container: {
-        marginTop: "54%",
+        marginTop: "4%",
         width: "100%",
     },
     cf_container:{

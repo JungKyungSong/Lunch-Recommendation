@@ -28,6 +28,7 @@ function Result({ navigation }) {
 
     return (
         <View style={styles.container}>
+            <StatusBar style="auto"/>
             <ImageBackground source={yonsei} style={styles.bg_image}>
             <View style={styles.title_container}>
                 <Text style={styles.title}>이곳에서 식사는 어떠실까요?</Text>

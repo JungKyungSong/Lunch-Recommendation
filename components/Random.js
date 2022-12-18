@@ -12,6 +12,7 @@ import {
 function Random({ navigation }) {
     return (
         <SafeAreaView>
+            <StatusBar style="auto"/>
             <Text>RANDOM</Text>
             <TouchableOpacity
                 onPress={() => navigation.navigate("Result")}

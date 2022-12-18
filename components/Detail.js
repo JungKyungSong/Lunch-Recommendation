@@ -12,6 +12,7 @@ import {
 function Result({ navigation }) {
     return (
         <SafeAreaView>
+            <StatusBar style="auto"/>
             <Text>DETAIL</Text>
             <TouchableOpacity
                 onPress={() => navigation.navigate("Map")}

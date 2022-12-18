@@ -16,6 +16,7 @@ const Restaurant = ({navigation}) => {
     return (
     
         <SafeAreaView style={styles.container}>
+          <StatusBar style="auto"/>
              <Text style={styles.title}>원하는 음식점 찾기</Text>           
             <View style={styles.login_container}>
                 <Text style={styles.second_text}>원하는 유형의 음식점을 선택해주세요.</Text>
