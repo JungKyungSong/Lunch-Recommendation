@@ -13,7 +13,7 @@ import main from "../images/main.png"
 function Main ({ navigation }) {
 
   return (
-     <SafeAreaView style={styles.container}>
+     <View style={styles.container}>
       <StatusBar style="auto"/>
       <ImageBackground source={main} style={styles.image}>
         <View>
@@ -32,7 +32,7 @@ function Main ({ navigation }) {
         <Text style={styles.register_text}>회원가입</Text>
         </TouchableOpacity>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     textAlignVertical: 'center',
     textAlign: 'center',
-    marginTop: "18%"
+    marginTop: "28%"
   },
   login_btn: {
     backgroundColor: "#2B82D4",

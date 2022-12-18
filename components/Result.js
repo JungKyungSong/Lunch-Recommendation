@@ -12,6 +12,7 @@ import {
   ScrollView,
 } from 'react-native';
 import cafeteria from "../images/cafeteria.png";
+import yonsei from "../images/yonsei.png";
 
 function Result({ navigation }) {
 
@@ -26,8 +27,10 @@ function Result({ navigation }) {
     const [category, setCategory] = useState('diary');
 
     return (
-        <SafeAreaView style={styles.container}>
-            <View>
+        <View style={styles.container}>
+            <ImageBackground source={yonsei} style={styles.bg_image}>
+            <View style={styles.title_container}>
+                <Text style={styles.title}>이곳에서 식사는 어떠실까요?</Text>
             </View>
             <View 
                 style={styles.scroll_container}>
@@ -87,7 +90,8 @@ function Result({ navigation }) {
                     <Text style={styles.random_text}>랜덤추천</Text>
                 </TouchableOpacity>                
             </View>
-        </SafeAreaView>
+            </ImageBackground>
+        </View>
     );
 }
 
@@ -97,16 +101,31 @@ const styles = StyleSheet.create({
       alignItems: "center",
       //justifyContent: "center",
     },
+    bg_image: {
+        width: "100%",
+        height: "100%",
+        resizeMode: "cover",
+      },
     image:{
         width: 75,
         height: 75,
         marginLeft: "20%",
         marginRight: "-10%"
     },
+    title_container: {
+    
+    },
+    title: {
+      fontSize: 25,
+      fontWeight: "bold",
+      color: "#FFFFFF",
+      marginTop: "40%",
+      marginLeft: "3%"
+    },
     scroll_container: {
-        marginTop: "40%",
+        marginTop: "6%",
         width: "100%",
-        height: "72%"
+        height: "65%"
     },
     rt_each:{
         //backgroundColor: "blue",
@@ -178,10 +197,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#D3E5F5",
         alignItems: "center",
         justifyContent: "center",
-        width: 80,
+        width: "30%",
         height: "23%",
         borderRadius: 20,
-        marginHorizontal: "30%",
+        marginHorizontal: "35%",
         marginTop: "3%"
     },
     random_text: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -13,8 +13,34 @@ import {
 import login_register from "../images/login_register.png"
 
 function Register({ navigation }) {
+  const secondRef = useRef();
+  const [inputs, setInputs] = useState({
+    id: '',
+    pw: '',
+    pwc: '',
+    nn: ''
+  });
+  const { id, pw, pwc, nn } = inputs;
+
+  const onChange = (keyvalue, e) => {
+    const {text} = e.nativeEvent
+    setInputs({
+      ...inputs, 
+      [keyvalue]: text 
+    });
+  };
+
+  const onReset = () => {
+    setInputs({
+      id: '',
+      pw: '',
+      pwc: '',
+      nn: ''
+    })
+  };
+
     return (
-         <SafeAreaView style={styles.container}>
+         <View style={styles.container}>
             <ImageBackground source={login_register} style={styles.image}>
                 <View>
                     <Text style={styles.title}>회원가입</Text>
@@ -28,6 +54,9 @@ function Register({ navigation }) {
                             <TextInput
                                 style={styles.input}
                                 placeholder="아이디"
+                                onChange={(e) => onChange("id", e)}
+                                value={id}
+                                onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>
                         </View>
@@ -35,6 +64,9 @@ function Register({ navigation }) {
                             <TextInput
                                 style={styles.input}
                                 placeholder="비밀번호"
+                                onChange={(e) => onChange("pw", e)}
+                                value={pw}
+                                onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>
                         </View>
@@ -42,6 +74,9 @@ function Register({ navigation }) {
                             <TextInput
                                 style={styles.input}
                                 placeholder="비밀번호 확인"
+                                onChange={(e) => onChange("pwc", e)}
+                                value={pwc}
+                                onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>
                         </View>
@@ -49,10 +84,14 @@ function Register({ navigation }) {
                             <TextInput
                                 style={styles.input}
                                 placeholder="닉네임"
+                                onChange={(e) => onChange("nn", e)}
+                                value={nn}
+                                onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>
                         </View>
                     </View>
+                    <Text>id: {id}, pw: {pw}, pwc: {pwc}, nn: {nn}</Text>
                     <TouchableOpacity
                         onPress={() => Alert.alert(
                             '회원가입',
@@ -71,7 +110,7 @@ function Register({ navigation }) {
                     </TouchableOpacity>
                 </View>
             </ImageBackground>
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -92,7 +131,7 @@ const styles = StyleSheet.create({
     color: "#2B82D4",
     textAlignVertical: 'center',
     textAlign: 'center',
-    marginTop: "30%"
+    marginTop: "33%"
   },
   register_container: {
     backgroundColor: "#FFFFFF",

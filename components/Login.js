@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -12,9 +12,30 @@ import {
 import login_register from "../images/login_register.png"
 
 function Login({ navigation }) {
+    const secondRef = useRef();
+    const [inputs, setInputs] = useState({
+      id: '',
+      pw: ''
+    });
+    const { id, pw } = inputs;
+
+    const onChange = (keyvalue, e) => {
+      const {text} = e.nativeEvent
+      setInputs({
+        ...inputs, 
+        [keyvalue]: text 
+      });
+    };
+
+    const onReset = () => {
+      setInputs({
+        id: '',
+        pw: '',
+      })
+    };
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <ImageBackground source={login_register} style={styles.image}>
                 <View>
                     <Text style={styles.title}>로그인</Text>
@@ -28,6 +49,9 @@ function Login({ navigation }) {
                             <TextInput
                                 style={styles.input}
                                 placeholder="아이디"
+                                onChange={(e) => onChange("id", e)}
+                                value={id}
+                                onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>
                         </View>
@@ -35,12 +59,18 @@ function Login({ navigation }) {
                             <TextInput
                                 style={styles.input}
                                 placeholder="비밀번호"
+                                onChange={(e) => onChange("pw", e)}
+                                value={pw}
+                                onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>
                         </View>
                     </View>
+                    <Text>id: {id}, pw: {pw}</Text>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("Mypage")}
+                        onPress={() => 
+                          navigation.navigate("Mypage")
+                        }
                         style={styles.login_btn}
                     >
                     <Text style={styles.login_text}>로그인</Text>
@@ -54,7 +84,7 @@ function Login({ navigation }) {
                     </TouchableOpacity>
                 </View>
             </ImageBackground>
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -75,7 +105,7 @@ const styles = StyleSheet.create({
       color: "#2B82D4",
       textAlignVertical: 'center',
       textAlign: 'center',
-      marginTop: "30%"
+      marginTop: "33%"
     },
     login_container: {
       backgroundColor: "#FFFFFF",

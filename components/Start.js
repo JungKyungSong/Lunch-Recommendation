@@ -13,7 +13,7 @@ import start from "../images/start.png"
 
 function Start({ navigation }) {
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <ImageBackground source={start} style={styles.image}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate("Info")}
@@ -22,7 +22,7 @@ function Start({ navigation }) {
                 <Text style={styles.start_text}>시작하기</Text>
                 </TouchableOpacity>
             </ImageBackground>
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         width: "86%",
         height: "7%",
-        marginTop: "160%",
+        marginTop: "180%",
         marginHorizontal: "7%",
         borderRadius: 5,
     },

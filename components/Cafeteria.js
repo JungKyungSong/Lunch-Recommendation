@@ -12,6 +12,7 @@ import {
   ScrollView,
 } from 'react-native';
 import cafeteria from "../images/cafeteria.png";
+import univ from "../images/univ.png";
 
 function Cafeteria({ navigation }) {
 
@@ -24,68 +25,70 @@ function Cafeteria({ navigation }) {
     ];
 
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView 
-                style={styles.scroll_container}
-                contentContainerStyle={{ flexGrow: 1 }}
-                contentInsetAdjustmentBehavior="automatic">
-                <View style={styles.cf_container}>
-                    {cfArr.map((array, index) => {
-                        return(
-                            <View
-                                    key={index}
-                                    style={styles.cf_each}
-                            >   
-                                <View style={styles.image_container}>
-                                    <Image style={styles.image} source={array.image}></Image>
-                                </View>
-                                <View>
-                                    <Text style={styles.cf_text}>{array.where}</Text>
-                                </View>
-                                <View style={styles.menu_container}>
-                                    <View style={styles.bf_container}>
-                                        <View>
-                                            <Text style={styles.cf_menu}>아침</Text>
+        <View style={styles.container}>
+            <ImageBackground source={univ} style={styles.bg_image}>
+                <ScrollView 
+                    style={styles.scroll_container}
+                    contentContainerStyle={{ flexGrow: 1 }}
+                    contentInsetAdjustmentBehavior="automatic">
+                    <View style={styles.cf_container}>
+                        {cfArr.map((array, index) => {
+                            return(
+                                <View
+                                        key={index}
+                                        style={styles.cf_each}
+                                >   
+                                    <View style={styles.image_container}>
+                                        <Image style={styles.image} source={array.image}></Image>
+                                    </View>
+                                    <View>
+                                        <Text style={styles.cf_text}>{array.where}</Text>
+                                    </View>
+                                    <View style={styles.menu_container}>
+                                        <View style={styles.bf_container}>
+                                            <View>
+                                                <Text style={styles.cf_menu}>아침</Text>
+                                            </View>
+                                            <View>
+                                                <Text style={styles.cf_menu_detail}>&nbsp;&nbsp;{array.bf}</Text>
+                                            </View>
                                         </View>
-                                        <View>
-                                            <Text style={styles.cf_menu_detail}>&nbsp;&nbsp;{array.bf}</Text>
+                                        <View style={styles.lc_container}>
+                                            <View>
+                                                
+                                                <Text style={styles.cf_menu}>점심</Text>
+                                            </View>
+                                            <View>
+                                                <Text style={styles.cf_menu_detail}>&nbsp;&nbsp;{array.lc}</Text>
+                                            </View>
+                                        </View>
+                                        <View style={styles.dn_container}>
+                                            <View>
+                                                <Text style={styles.cf_menu}>저녁</Text>
+                                            </View>
+                                            <View>
+                                                <Text style={styles.cf_menu_detail}>&nbsp;&nbsp;{array.dn}</Text>
+                                            </View>
                                         </View>
                                     </View>
-                                    <View style={styles.lc_container}>
-                                        <View>
-                                            
-                                            <Text style={styles.cf_menu}>점심</Text>
-                                        </View>
-                                        <View>
-                                            <Text style={styles.cf_menu_detail}>&nbsp;&nbsp;{array.lc}</Text>
-                                        </View>
-                                    </View>
-                                    <View style={styles.dn_container}>
-                                        <View>
-                                            <Text style={styles.cf_menu}>저녁</Text>
-                                        </View>
-                                        <View>
-                                            <Text style={styles.cf_menu_detail}>&nbsp;&nbsp;{array.dn}</Text>
-                                        </View>
-                                    </View>
                                 </View>
-                            </View>
-                        );
-                    })
-                    } 
-                </View>
-            </ScrollView>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Category")}
-            >
-            <Text>학식은 지겨워요(질문 추천 버전)</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Random")}
-            >
-            <Text>학식은 지겨워요(이미지 추천 버전)</Text>
-            </TouchableOpacity>
-        </SafeAreaView>
+                            );
+                        })
+                        } 
+                    </View>
+                </ScrollView>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("Category")}
+                >
+                <Text>학식은 지겨워요(질문 추천 버전)</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("Random")}
+                >
+                <Text>학식은 지겨워요(이미지 추천 버전)</Text>
+                </TouchableOpacity>
+            </ImageBackground>
+        </View>
     );
 }
 
@@ -94,6 +97,11 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: "center",
       //justifyContent: "center",
+    },
+    bg_image: {
+      width: "100%",
+      height: "100%",
+      resizeMode: "cover",
     },
     image:{
         width: 80,
@@ -121,7 +129,7 @@ const styles = StyleSheet.create({
         //right:0,
     },
     scroll_container: {
-        marginTop: "40%",
+        marginTop: "54%",
         width: "100%",
     },
     cf_container:{
