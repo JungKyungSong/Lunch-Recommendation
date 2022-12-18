@@ -131,7 +131,10 @@ const styles = StyleSheet.create({
         //backgroundColor: "blue",
         width: "100%",
         height: "20%",
-        flexDirection: "row"
+        flexDirection: "row",
+        borderBottomColor: '#EFEFEF',
+        borderBottomWidth: 2,
+        paddingTop: "3%"
     },
     cf_text:{
         textAlign: "left",
