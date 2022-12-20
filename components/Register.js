@@ -13,6 +13,9 @@ import {
 import login_register from "../images/login_register.png"
 
 function Register({ navigation }) {
+
+  const [result, setResult] = useState();
+  const [ok, setOk] = useState(false);
   const secondRef = useRef();
   const [inputs, setInputs] = useState({
     id: '',
@@ -20,6 +23,7 @@ function Register({ navigation }) {
     pwc: '',
     nn: ''
   });
+  
   const { id, pw, pwc, nn } = inputs;
 
   const onChange = (keyvalue, e) => {
@@ -38,6 +42,22 @@ function Register({ navigation }) {
       nn: ''
     })
   };
+
+  const sendResult = async () => {
+    try {
+      console.log(
+        `http://127.0.0.1:8080/register/?username=${id}&password=${pw}&nickname=${nn}&`
+      );
+      const response = await fetch(
+        `http://127.0.0.1:8080/register/?username=${id}&password=${pw}&nickname=${nn}&`
+      );
+      setResult(response.status);
+    } catch (e) {}
+  };
+
+  useEffect(() => {
+    sendResult();
+  }, [ok]);
 
     return (
          <View style={styles.container}>
@@ -98,7 +118,7 @@ function Register({ navigation }) {
                             '회원가입',
                             '회원가입 하시겠습니까?',
                             [
-                              {text: '네', onPress:() => navigation.navigate("Login")},
+                              {text: '네', onPress:() => setOk(true)},
                               {
                                 text: '아니요',
                                 style: 'cancel'
