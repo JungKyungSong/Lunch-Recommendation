@@ -12,6 +12,11 @@ import {
 import login_register from "../images/login_register.png"
 
 function Login({ navigation }) {
+
+    const [result, setResult] = useState();
+    const [ok, setOk] = useState(false);
+    const isMounted = useRef(false);
+
     const secondRef = useRef();
     const [inputs, setInputs] = useState({
       id: '',
@@ -33,6 +38,29 @@ function Login({ navigation }) {
         pw: '',
       })
     };
+
+    const sendResult = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8080/login", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: id,
+            password: pw,
+          }), 
+        }).then(response => console.log(response.status));
+        setResult(response.status);
+      } catch (e) {}
+    };
+  
+    useEffect(() => {
+      if(isMounted.current){
+        sendResult();
+        navigation.navigate("Mypage");
+      } else {
+       isMounted.current = true;
+      }
+    }, [ok]);
 
     return (
         <View style={styles.container}>
@@ -70,7 +98,7 @@ function Login({ navigation }) {
                     <Text>id: {id}, pw: {pw}</Text>
                     <TouchableOpacity
                         onPress={() => 
-                          navigation.navigate("Mypage")
+                          setOk(true)
                         }
                         style={styles.login_btn}
                     >
