@@ -45,15 +45,20 @@ function Register({ navigation }) {
 
   const sendResult = async () => {
     try {
-      console.log(
-        `http://127.0.0.1:8080/register/?username=${id}&password=${pw}&nickname=${nn}&`
-      );
-      const response = await fetch(
-        `http://127.0.0.1:8080/register/?username=${id}&password=${pw}&nickname=${nn}&`
-      );
+      console.log(`http://127.0.0.1:8080/register?username=${id}&password=${pw}&nickname=${nn}&`);
+      const response = await fetch("http://127.0.0.1:8080/register", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: id,
+          password: pw,
+          nickname: nn,
+        }), 
+      }).then(response => console.log(response.status));
       setResult(response.status);
     } catch (e) {}
   };
+
 
   useEffect(() => {
     sendResult();
