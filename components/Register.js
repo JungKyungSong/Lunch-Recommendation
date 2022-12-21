@@ -16,6 +16,8 @@ function Register({ navigation }) {
 
   const [result, setResult] = useState();
   const [ok, setOk] = useState(false);
+  const isMounted = useRef(false);
+
   const secondRef = useRef();
   const [inputs, setInputs] = useState({
     id: '',
@@ -61,7 +63,11 @@ function Register({ navigation }) {
 
 
   useEffect(() => {
-    sendResult();
+    if(isMounted.current){
+      sendResult();
+    } else {
+     isMounted.current = true;
+    }
   }, [ok]);
 
     return (
