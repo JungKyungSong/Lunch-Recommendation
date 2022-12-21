@@ -145,15 +145,15 @@ function Cafeteria({ navigation }) {
     const getResult = async () => {
        try {
          const response = await fetch(
-           "http://127.0.0.1:8000/cafeteria"
+           "http://127.0.0.1:8080/cafeteria"
          );
             const json = await response.json();
             setMat1Arr(Object.values(json["맛나샘"]["hotbowl"]))
             setMat2Arr(Object.values(json["맛나샘"]["nodel"]))
             setMat3Arr(Object.values(json["맛나샘"]["soban"]))
-            setHan1Arr(Object.values(json["한경관"]["1층_중식"]))
-            setHan2Arr(Object.values(json["한경관"]["2층_중식"]))
-            setHan3Arr(Object.values(json["한경관"]["2층_석식"]))
+            setHan1Arr(Object.values(json["한경관"]["1층 중식"]))
+            setHan2Arr(Object.values(json["한경관"]["2층 중식"]))
+            setHan3Arr(Object.values(json["한경관"]["2층 석식"]))
             setChung1Arr(Object.values(json["청경관"]["snack"]))
             setBu1Arr(Object.values(json["부를샘"]["chinese"]))
             setBu2Arr(Object.values(json["부를샘"]["western"]))
