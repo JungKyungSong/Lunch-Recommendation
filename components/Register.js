@@ -65,6 +65,7 @@ function Register({ navigation }) {
   useEffect(() => {
     if(isMounted.current){
       sendResult();
+      navigation.navigate("Login");
     } else {
      isMounted.current = true;
     }
@@ -129,7 +130,15 @@ function Register({ navigation }) {
                             '회원가입',
                             '회원가입 하시겠습니까?',
                             [
-                              {text: '네', onPress:() => setOk(true)},
+                              {text: '네', onPress:() =>
+                              Alert.alert(
+                                '회원가입 완료',
+                                '성공적으로 가입되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => setOk(true)},
+                                ]
+                              )
+                              },
                               {
                                 text: '아니요',
                                 style: 'cancel'
