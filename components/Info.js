@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   Alert,
   Image,
-  Button
+  Button, 
+  Pressable
 } from 'react-native';
 
 
@@ -304,4 +305,3 @@ const styles = StyleSheet.create({
 });*/
 
 export default Info;
-

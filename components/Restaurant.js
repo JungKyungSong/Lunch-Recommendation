@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -13,6 +13,12 @@ import {
 
 
 const Restaurant = ({navigation}) => {
+  const [select, setselect] = useState(0);
+
+  const setclick1 = () => setselect(1);
+  const setclick2 = () => setselect(2);
+  const setclick3 = () => setselect(3);
+  const setclick4 = () => setselect(4);
     return (
     
         <SafeAreaView style={styles.container}>
@@ -25,7 +31,9 @@ const Restaurant = ({navigation}) => {
                 <View style={{height: 220, flexDirection: 'row'}}>
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center'}}>
-                        <Image source={require('../images/ex_images.png')} style={{width: 150, height: 150}}/>
+                        <TouchableOpacity onPress={setclick1}>
+                        <Image style={[styles.image,{opacity: (select===1 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                        </TouchableOpacity>  
                         </View>
                         <View>
                         <Text style={styles.image_text}>한식</Text>
@@ -33,7 +41,9 @@ const Restaurant = ({navigation}) => {
                     </View>
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center'}}>
-                        <Image source={require('../images/ex_images.png')} style={{width: 150, height: 150}}/>
+                        <TouchableOpacity onPress={setclick2}>
+                        <Image style={[styles.image,{opacity: (select===2 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                        </TouchableOpacity>
                         </View>
                         <View>
                         <Text style={styles.image_text}>양식</Text>
@@ -43,7 +53,9 @@ const Restaurant = ({navigation}) => {
                 <View style={{height: 220, flexDirection: 'row'}}>
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center', }}>
-                        <Image source={require('../images/ex_images.png')} style={{width: 150, height: 150}}/>
+                        <TouchableOpacity onPress={setclick3}>
+                        <Image style={[styles.image,{opacity: (select===3 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                        </TouchableOpacity>
                         </View>
                         <View>
                         <Text style={styles.image_text}>중식</Text>
@@ -52,8 +64,11 @@ const Restaurant = ({navigation}) => {
 
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center', }}>
-                        <Image source={require('../images/ex_images.png')} style={{width: 150, height: 150}}/>
+                        <TouchableOpacity onPress={setclick4}>
+                        <Image style={[styles.image,{opacity: (select===4 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                        </TouchableOpacity>
                         </View>
+                        
                         <View>
                         <Text style={styles.image_text}>일식</Text>
                         </View>
@@ -86,9 +101,9 @@ const styles = StyleSheet.create({
       justifyContent: "center",
     },
     image:{
-      width: "100%",
-      height: "100%",
-      resizeMode: "cover",
+      width: 150,
+      height: 150,
+    
     },
     title: {
       fontSize: 25,

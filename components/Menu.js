@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -13,6 +13,13 @@ import {
 
 
 const Menu = ({navigation}) => {
+  const [select, setselect] = useState(0);
+
+  const setclick1 = () => setselect(1);
+  const setclick2 = () => setselect(2);
+  const setclick3 = () => setselect(3);
+  const setclick4 = () => setselect(4);
+  
     return (
     
         <SafeAreaView style={styles.container}>
@@ -27,9 +34,9 @@ const Menu = ({navigation}) => {
                         <View style={{alignItems: 'center'}}>
                         <Image source={require('../images/images.png')} style={{width: 150, height: 150}}/>
                         </View>
-                        <View>
+                        <TouchableOpacity>
                         <Text style={styles.image_text}>한식</Text>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center'}}>

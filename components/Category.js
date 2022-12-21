@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -13,6 +13,15 @@ import {
 
 
 const Category = ({navigation}) => {
+  const [select, setselect] = useState(0);
+
+  const setclick1 = () => setselect(1);
+  const setclick2 = () => setselect(2);
+  const setclick3 = () => setselect(3);
+  const setclick4 = () => setselect(4);
+  const setclick5 = () => setselect(5);
+  const setclick6 = () => setselect(6);
+
     return (
     
         <SafeAreaView style={styles.container}>
@@ -22,43 +31,44 @@ const Category = ({navigation}) => {
             
                 <Text style={styles.second_text}>원하는 유형의 음식점을 선택해주세요</Text>
                 <View style={{height: 200, flexDirection: 'row'}}>
-                <View style={styles.category_container}>
-                       <View>
+                <View style={[styles.category_container,{backgroundColor: select===1 ? 'orange' : "#FFFFFF"},]}>
+                <TouchableOpacity onPress={setclick1}> 
                        <Image source={require('../images/carrot.png')} style={{width: 80, height: 100}}/>
                        <Text style={styles.text}>다이어트</Text>
-                        </View>
-                </View>
-                <View style={styles.category_container}>
-                       <View>
+                       </TouchableOpacity> 
+                       </View>       
+
+                       <View style={[styles.category_container,{backgroundColor: select===2 ? 'orange' : "#FFFFFF"},]}>
+                       <TouchableOpacity onPress={setclick2}>
                        <Image source={require('../images/heart.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>데이트</Text>
-                        </View>
+                       </TouchableOpacity>
                 </View>
-                <View style={styles.category_container}>
-                       <View>
+                <View style={[styles.category_container,{backgroundColor: select===3 ? 'orange' : "#FFFFFF"},]}>
+                       <TouchableOpacity onPress={setclick3}>
                        <Image source={require('../images/book.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>공부</Text>
-                        </View>
+                        </TouchableOpacity>
                 </View>
                 </View>
                 <View style={{height: 200, flexDirection: 'row'}}>
-                <View style={styles.category_container}>
-                       <View>
+                <View style={[styles.category_container,{backgroundColor: select===4 ? 'orange' : "#FFFFFF"},]}>
+                       <TouchableOpacity onPress={setclick4}>
                        <Image source={require('../images/thumb.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>찐맛집</Text>
-                        </View>
+                        </TouchableOpacity>
                 </View>
-                <View style={styles.category_container}>
-                       <View>
+                <View style={[styles.category_container,{backgroundColor: select===5 ? 'orange' : "#FFFFFF"},]}>
+                       <TouchableOpacity onPress={setclick5}>
                        <Image source={require('../images/crown.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>타대생없는</Text>
-                        </View>
+                       </TouchableOpacity>
                 </View>
-                <View style={styles.category_container}>
-                       <View>
+                <View style={[styles.category_container,{backgroundColor: select===6 ? 'orange' : "#FFFFFF"},]}>
+                       <TouchableOpacity onPress={setclick6}>
                        <Image source={require('../images/thunder.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>번개추천</Text>
-                        </View>
+                        </TouchableOpacity>
                 </View>
                 </View>
                 <Text>잘 모르시겠다면 번개추천을 눌러주세요</Text>
