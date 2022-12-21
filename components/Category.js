@@ -31,20 +31,20 @@ const Category = ({navigation}) => {
             
                 <Text style={styles.second_text}>원하는 유형의 음식점을 선택해주세요</Text>
                 <View style={{height: 200, flexDirection: 'row'}}>
-                <View style={[styles.category_container,{backgroundColor: select===1 ? 'orange' : "#FFFFFF"},]}>
+                <View style={[styles.category_container,{backgroundColor: select===1 ? 'skyblue' : "#FFFFFF"},]}>
                 <TouchableOpacity onPress={setclick1}> 
                        <Image source={require('../images/carrot.png')} style={{width: 80, height: 100}}/>
                        <Text style={styles.text}>다이어트</Text>
                        </TouchableOpacity> 
                        </View>       
 
-                       <View style={[styles.category_container,{backgroundColor: select===2 ? 'orange' : "#FFFFFF"},]}>
+                       <View style={[styles.category_container,{backgroundColor: select===2 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick2}>
                        <Image source={require('../images/heart.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>데이트</Text>
                        </TouchableOpacity>
                 </View>
-                <View style={[styles.category_container,{backgroundColor: select===3 ? 'orange' : "#FFFFFF"},]}>
+                <View style={[styles.category_container,{backgroundColor: select===3 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick3}>
                        <Image source={require('../images/book.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>공부</Text>
@@ -52,19 +52,19 @@ const Category = ({navigation}) => {
                 </View>
                 </View>
                 <View style={{height: 200, flexDirection: 'row'}}>
-                <View style={[styles.category_container,{backgroundColor: select===4 ? 'orange' : "#FFFFFF"},]}>
+                <View style={[styles.category_container,{backgroundColor: select===4 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick4}>
                        <Image source={require('../images/thumb.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>찐맛집</Text>
                         </TouchableOpacity>
                 </View>
-                <View style={[styles.category_container,{backgroundColor: select===5 ? 'orange' : "#FFFFFF"},]}>
+                <View style={[styles.category_container,{backgroundColor: select===5 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick5}>
                        <Image source={require('../images/crown.png')} style={{width: 70, height: 70}}/>
-                       <Text style={styles.text}>타대생없는</Text>
+                       <Text style={styles.text}>모임</Text>
                        </TouchableOpacity>
                 </View>
-                <View style={[styles.category_container,{backgroundColor: select===6 ? 'orange' : "#FFFFFF"},]}>
+                <View style={[styles.category_container,{backgroundColor: select===6 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick6}>
                        <Image source={require('../images/thunder.png')} style={{width: 70, height: 70}}/>
                        <Text style={styles.text}>번개추천</Text>

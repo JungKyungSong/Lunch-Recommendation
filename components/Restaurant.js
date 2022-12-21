@@ -8,8 +8,10 @@ import {
   TouchableOpacity,
   Alert,
   Image,
-  Button
+  Button,
+  ScrollView
 } from 'react-native';
+import cafeteria from "../images/cafeteria.png";
 
 
 const Restaurant = ({navigation}) => {
@@ -19,15 +21,22 @@ const Restaurant = ({navigation}) => {
   const setclick2 = () => setselect(2);
   const setclick3 = () => setselect(3);
   const setclick4 = () => setselect(4);
+  const setclick5 = () => setselect(5);
+  const setclick6 = () => setselect(6);
+  const setclick7 = () => setselect(7);
+  const setclick8 = () => setselect(8);
     return (
     
         <SafeAreaView style={styles.container}>
           <StatusBar style="auto"/>
              <Text style={styles.title}>원하는 음식점 찾기</Text>           
-            <View style={styles.login_container}>
+            <ScrollView 
+                    style={styles.scroll_container}
+                    contentContainerStyle={{ flexGrow: 1, alwaysBounceVertical: false, bounces: false}}
+                    >
                 <Text style={styles.second_text}>원하는 유형의 음식점을 선택해주세요.</Text>
                 
-
+                
                 <View style={{height: 220, flexDirection: 'row'}}>
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center'}}>
@@ -74,21 +83,73 @@ const Restaurant = ({navigation}) => {
                         </View>
                     </View>
                 </View>
-                <TouchableOpacity
+                <View style={{height: 220, flexDirection: 'row'}}>
+                    <View style={{flex: 1, alignItems: "center"}}>
+                        <View style={{alignItems: 'center', }}>
+                        <TouchableOpacity onPress={setclick5}>
+                        <Image style={[styles.image,{opacity: (select===5 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                        </TouchableOpacity>
+                        </View>
+                        <View>
+                        <Text style={styles.image_text}>분식</Text>
+                        </View>
+                    </View>
+
+                    <View style={{flex: 1, alignItems: "center"}}>
+                        <View style={{alignItems: 'center', }}>
+                        <TouchableOpacity onPress={setclick6}>
+                        <Image style={[styles.image,{opacity: (select===6 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                        </TouchableOpacity>
+                        </View>
+                        
+                        <View>
+                        <Text style={styles.image_text}>패스트푸드</Text>
+                        </View>
+                    </View>
+                </View>
+                <View style={{height: 220, flexDirection: 'row'}}>
+                    <View style={{flex: 1, alignItems: "center"}}>
+                        <View style={{alignItems: 'center', }}>
+                        <TouchableOpacity onPress={setclick7}>
+                        <Image style={[styles.image,{opacity: (select===7 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                        </TouchableOpacity>
+                        </View>
+                        <View>
+                        <Text style={styles.image_text}>닭요리</Text>
+                        </View>
+                    </View>
+
+                    <View style={{flex: 1, alignItems: "center"}}>
+                        <View style={{alignItems: 'center', }}>
+                        <TouchableOpacity onPress={setclick8}>
+                        <Image style={[styles.image,{opacity: (select===8 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                        </TouchableOpacity>
+                        </View>
+                        
+                        <View>
+                        <Text style={styles.image_text}>별식/퓨전요리</Text>
+                        </View>
+                    </View>
+                </View>                
+                </ScrollView>
+
+
+              <TouchableOpacity
                         onPress={() => navigation.navigate("Menu")}
                         style={styles.login_btn}
                     >
                     <Text style={styles.text}>다음</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
+              </TouchableOpacity>
+              <TouchableOpacity
                         onPress={() => navigation.navigate("Category")}
                         style={styles.register_btn}
                     >
                     <Text style={styles.text}>이전</Text>
-            </TouchableOpacity>
-            </View>
+              </TouchableOpacity>
+            
+            </SafeAreaView>
 
-        </SafeAreaView>
+     
     );
 };
 
@@ -197,7 +258,17 @@ const styles = StyleSheet.create({
     user:{
         backgroundColor:'white',
         marginHorizontal:20,
-    }
+    },
+    scroll_container: {
+      paddingTop: "30%",
+      paddingBottom: "50%",
+      marginTop: "5%",
+      height: "100%",
+      width: "100%",
+      marginHorizontal: "10%",
+      contentOffset:{x: 0, y: -50},
+    
+  }
 })
 
 /*const styles = StyleSheet.create({

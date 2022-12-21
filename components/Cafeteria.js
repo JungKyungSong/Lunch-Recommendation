@@ -504,7 +504,7 @@ const styles = StyleSheet.create({
         marginLeft: "4%"
     },
     scroll_container: {
-        marginTop: "4%",
+        marginTop: "10%",
         width: "100%",
     },
     cf_container:{

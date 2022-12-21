@@ -14,6 +14,21 @@ import {
 
 
 const Info = ({navigation}) => {
+  const [select, setselect] = useState(0);
+
+  const setclick1 = () => setselect(1);
+  const setclick2 = () => setselect(2);
+  const setclick3 = () => setselect(3);
+  const setclick4 = () => setselect(4);
+  const setclick5 = () => setselect(5);
+  const setclick6 = () => setselect(6);
+  const setclick7 = () => setselect(7);
+  const setclick8 = () => setselect(8);
+  const setclick9 = () => setselect(9);
+  const setclick10 = () => setselect(10);
+  const setclick11 = () => setselect(11);
+  const setclick12 = () => setselect(12);
+
     return (
     
         <SafeAreaView style={styles.container}>
@@ -24,89 +39,74 @@ const Info = ({navigation}) => {
                 <Text style={styles.text}>현재 계신 건물은 어디인가요?</Text>
                 <View style={styles.view_style}>
 
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick1}
+                    style={[styles.info_btn,{opacity: (select===1 || select===0)? 1 : 0.2}]}>                    
                     <Text style={styles.btn_text}>공학관</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick2}
+                    style={[styles.info_btn,{opacity: (select===2 || select===0)? 1 : 0.2}]}>
                     <Text style={styles.btn_text}>공학원</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick3}
+                    style={[styles.info_btn2,{opacity: (select===3 || select===0)? 1 : 0.2}]}>
                     <Text style={styles.btn_text}>중앙도서관</Text>
                 </TouchableOpacity>
 
                 </View>
                 <View style={styles.view_style}>
 
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick4}
+                    style={[styles.info_btn,{opacity: (select===4 || select===0)? 1 : 0.2}]}>
+                    
                     <Text style={styles.btn_text}>대우관</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick5}
+                    style={[styles.info_btn,{opacity: (select===5 || select===0)? 1 : 0.2}]}>
+                    
                     <Text style={styles.btn_text}>학생회관</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick6}
+                    style={[styles.info_btn2,{opacity: (select===6 || select===0)? 1 : 0.2}]}>
+                    
                     <Text style={styles.btn_text}>삼성관</Text>
                 </TouchableOpacity>
 
                 </View>
                 <View style={styles.view_style}>
 
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick7}
+                    style={[styles.info_btn,{opacity: (select===7 || select===0)? 1 : 0.2}]}>
+                    
                     <Text style={styles.btn_text}>과확원</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
-                    <Text style={styles.btn_text}>연희관</Text>
+                <TouchableOpacity onPress={setclick8}
+                    style={[styles.info_btn,{opacity: (select===8 || select===0)? 1 : 0.2}]}>
+                    
+                    <Text style={styles.btn_text2}>연희관</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick9}
+                    style={[styles.info_btn2,{opacity: (select===9 || select===0)? 1 : 0.2}]}>
+                    
                     <Text style={styles.btn_text}>언더우드관</Text>
                 </TouchableOpacity>
 
                 </View>
                 <View style={styles.view_style}>
 
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick10}
+                    style={[styles.info_btn,{opacity: (select===10 || select===0)? 1 : 0.2}]}>
+                    
                     <Text style={styles.btn_text}>외솔관</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
+                <TouchableOpacity onPress={setclick11}
+                    style={[styles.info_btn,{opacity: (select===11 || select===0)? 1 : 0.2}]}>
+                    
                     <Text style={styles.btn_text}>백양로</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => Alert.alert('Simple Button pressed')}
-                        style={styles.info_btn}
-                    >
-                    <Text style={styles.btn_text}>그 외</Text>
+                <TouchableOpacity onPress={setclick12}
+                    style={[styles.info_btn,{opacity: (select===12 || select===0)? 1 : 0.2}]}>
+                    
+                    <Text style={styles.btn_text}>정문</Text>
                 </TouchableOpacity>
 
                 </View>  
@@ -228,8 +228,7 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderRadius: 5,
     },
-    info_btn: {
-        backgroundColor: "#FFFFFF",
+    info_btn2: {
         alignItems: "center",
         justifyContent: "center",
         width: "70%",
@@ -237,7 +236,19 @@ const styles = StyleSheet.create({
         marginTop: "10%",
         marginHorizontal: "3%",
         borderColor: "#92BEE7",
-        borderWidth: 1,
+        borderWidth: 4,
+        borderRadius: 30,
+        hitSlop:{ top: 60, bottom: 400000, left: 60, right: 60 },
+      },
+    info_btn: {
+        alignItems: "center",
+        justifyContent: "center",
+        width: "70%",
+        height: "52%",
+        marginTop: "10%",
+        marginHorizontal: "3%",
+        borderColor: "#92BEE7",
+        borderWidth: 4,
         borderRadius: 30,
       },
     login_text: {
