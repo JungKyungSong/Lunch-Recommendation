@@ -131,11 +131,11 @@ const sendResult = async () => {
     useEffect(() => {
       if(isMounted.current){
       sendResult2();
-      navigation.navigate("Info")
+      //navigation.navigate("Info")
       } else {
       isMounted.current = true;
       }
-}, [ok]);
+     }, [ok]);
 
     const getResult = async () => {
       try {
