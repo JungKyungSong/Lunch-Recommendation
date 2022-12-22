@@ -73,6 +73,7 @@ const Menu = ({navigation}) => {
       );
          const json = await response.json();
          setNum(Object.values(json["number"]))
+         console.log(num);
      } catch (e) {}
    };
 
