@@ -180,7 +180,7 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           swipedDirection(swipeDirection);
           removeCard();
           const array = [...array, 0];
-          Alert.alert('좋아요');
+          console.log('good');
         });
       } else if (gestureState.dx < -SCREEN_WIDTH + 150) {
         Animated.parallel([
@@ -198,7 +198,7 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           swipedDirection(swipeDirection);
           removeCard();
           const array = [...array, 0];
-          Alert.alert('싫어요');
+          console.log('싫어요');
         });
       }
     },
