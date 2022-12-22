@@ -175,7 +175,7 @@ const Info = ({navigation}) => {
                 <Text style={styles.subtext}>
                   {{myTime} === "0시간" ?  
                   <Text style={styles.subtext}>{nickname}님 수업 중 아니신가요?</Text>
-                  :<Text style={styles.subtext}>{nickname}님의 현재 공강시간은 {myTime}이네요!{"\n"}⏰식사에 쓸 수 있는 시간을 알려주세요</Text>}
+                  :<Text style={styles.subtext}>{nickname}님의 현재 공강 시간은 {myTime}이네요!{"\n"}⏰식사에 쓸 수 있는 시간을 알려주세요</Text>}
                   </Text>
                 </View>  
                 <View style={styles.view_style2}>
