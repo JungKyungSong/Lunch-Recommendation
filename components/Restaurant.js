@@ -47,7 +47,9 @@ const Restaurant = ({navigation}) => {
   useEffect(() => {
     if(isMounted.current){
       sendResult();
-      navigation.navigate("Menu");
+      navigation.navigate("Menu", {
+        num: select
+      });
     } else {
      isMounted.current = true;
     }

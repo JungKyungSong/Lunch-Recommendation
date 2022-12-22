@@ -14,10 +14,10 @@ import {
 import { set } from 'react-native-reanimated';
 
 
-const Menu = ({navigation}) => {
-
-  const list =
-    [["고기구이", "국밥/해장국", "국수/만두/칼국수", "냉면집", "족발/보쌈", "찌개/국물", "찜닭/닭갈비", "한식/백반/한정식"],
+const Menu = ({navigation, route}) => {
+  const num = route.params.num - 1;
+  const list = [
+    ["고기구이", "국밥/해장국", "국수/만두/칼국수", "냉면집", "족발/보쌈", "찌개/국물", "찜닭/닭갈비", "한식/백반/한정식"],
     ["스테이크/폭립", "양식종합", "정통양식/경양식", "파스타/스파게티"],
     ["마라탕", "양꼬치", "중국집"],
     ["돈가스", "돈부리/덮밥", "라멘", "샤브샤브", "우동/소바/오뎅", "일식종합", "초밥", "횟집"],
@@ -26,12 +26,14 @@ const Menu = ({navigation}) => {
     ["삼계탕", "찜닭/닭갈비", "후라이드/양념치킨"],
     ["동남아음식", "죽전문점", "타코", "퓨전음식"]]
 
+  const array = list[num]
+
   const [select, setselect] = useState(0);
   const [result, setResult] = useState();
   const [ok, setOk] = useState(false);
   const isMounted = useRef(false);
   const secondRef = useRef();
-  const [num, setNum] = useState(1);
+  const [numArr, setNumArr] = useState([]);
 
   var f_obj = {}
   f_obj.setclick1 = () => setselect(1);
@@ -66,20 +68,19 @@ const Menu = ({navigation}) => {
     }
   }, [ok]);
 
-  const getResult = async () => {
-    try {
-      const response = await fetch(
-        "http://127.0.0.1:8080/category/Mcategory/get"
-      );
-         const json = await response.json();
-         setNum(Object.values(json["number"]))
-         console.log(num);
-     } catch (e) {}
-   };
+  // const getResult = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "http://127.0.0.1:8080/category/Mcategory/get"
+  //     );
+  //        const json = await response.json();
+  //        setNum(Object.values(json["number"]))
+  //    } catch (e) {}
+  //  };
 
-  useEffect(() => {
-      getResult();
-  }, [])
+  // useEffect(() => {
+  //     getResult();
+  // }, [])
 
     return (
     
@@ -91,7 +92,7 @@ const Menu = ({navigation}) => {
                     contentContainerStyle={{ flexGrow: 1 }}
                     contentInsetAdjustmentBehavior="automatic">
                     <View style={styles.cf_container}>
-                        {list[num-1].map((item, index) => {
+                        {array.map((item, index) => {
                             return(
                                 <View
                                         key={index}
