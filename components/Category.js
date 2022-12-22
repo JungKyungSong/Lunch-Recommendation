@@ -33,7 +33,7 @@ const Category = ({navigation}) => {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          label: label_result,
+          label: select,
         }), 
       }).then(response => console.log(response.status));
       setResult(response.status);
@@ -43,9 +43,7 @@ const Category = ({navigation}) => {
   useEffect(() => {
     if(isMounted.current){
       sendResult();
-      navigation.navigate("Restaurant", {
-        label: select,  
-      })
+      navigation.navigate("Restaurant")
     } else {
      isMounted.current = true;
     }
