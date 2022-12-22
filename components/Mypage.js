@@ -1,6 +1,7 @@
 import {useState, useEffect,useRef} from 'react';
-import {Image, Button} from 'react-native';
+import {Button} from 'react-native';
 import React from 'react';
+import axios from 'axios';
 import {
   StatusBar,
   StyleSheet,
