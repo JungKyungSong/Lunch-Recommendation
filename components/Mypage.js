@@ -16,7 +16,7 @@ function Mypage({ navigation }) {
    
  
     return (
-        <View>
+        <SafeAreaView>
             <StatusBar style="auto"/>
             <Text>MYPAGE</Text>
             <TouchableOpacity
@@ -24,7 +24,7 @@ function Mypage({ navigation }) {
             >
             <Text>시작하기</Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     );
 }
 
