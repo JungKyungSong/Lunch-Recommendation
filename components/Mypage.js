@@ -9,9 +9,19 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Alert,
+  ImageBackground,
+  Image,
+  ScrollView,
+  Styled
 } from 'react-native';
 import main from "../images/main.png"
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+
+
+import cafeteria from "../images/cafeteria.png";
+import yonsei from "../images/yonsei.png";
+import everytime from "../images/everytime.png";
+
 
 
 function Mypage({ navigation }) {
@@ -107,6 +117,7 @@ const sendResult = async () => {
           <Text>hiString</Text>
         </TouchableOpacity>
         </SafeAreaView>
+        
     );
 }
 
