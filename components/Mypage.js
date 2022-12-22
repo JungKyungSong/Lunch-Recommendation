@@ -460,7 +460,7 @@ const sendResult = async () => {
         </View>
         </View>
         <TouchableOpacity
-                    onPress={() => setOk(true)}
+                    onPress={() => setOk(!true)}
                     style={styles.login_btn}
                 >
                 <Text style={styles.text}>다음</Text>

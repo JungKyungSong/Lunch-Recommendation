@@ -86,10 +86,24 @@ const Info = ({navigation}) => {
          console.log(nickname)
      } catch (e) {}
    };
+
+  //  const getResult3 = async () => {
+  //   try {
+      //  const response = await fetch(
+      //    "http://127.0.0.1:8080/login/nickname"
+      //  );
+
+      //    const json = await response.json();
+         
+  //        setNickname(Object.values(json["nickname"]))
+  //        console.log(nickname)
+  //    } catch (e) {}
+  //  };
  
     useEffect(() => {
         getResult();
         getResult2();
+        //getResult3()
     }, []);
 
     return (
@@ -176,10 +190,8 @@ const Info = ({navigation}) => {
                 </View>  
                 <View style={styles.subtitle}>
                 <Text style={styles.subtext}>
-                  {{myTime} === "0시간" ?  
-                  <Text style={styles.subtext}>{nickname}님 수업 중 아니신가요?</Text>
-                  :<Text style={styles.subtext}>{nickname}님의 현재 공강 시간은 {myTime}이네요!{"\n"}⏰식사에 쓸 수 있는 시간을 알려주세요</Text>}
-                  </Text>
+                  {nickname}님의 현재 공강 시간은 {myTime}이네요!{"\n"}⏰식사에 쓸 수 있는 시간을 알려주세요
+                </Text>
                 </View>  
                 <View style={styles.view_style2}>
 
