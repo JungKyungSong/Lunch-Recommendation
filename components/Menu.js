@@ -92,7 +92,7 @@ const Menu = ({navigation, route}) => {
 
 const sendResult = async () => {
   try {
-    const response = await fetch("http://127.0.0.1:8080/result", {
+    const response = await fetch("http://127.0.0.1:8080/category_result", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
