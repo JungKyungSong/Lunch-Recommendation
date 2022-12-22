@@ -16,6 +16,7 @@ import cafeteria from "../images/cafeteria.png";
 
 const Restaurant = ({navigation, route}) => {
   const [select, setselect] = useState(0);
+  const [arr, setArr] = useState([]);
   const label = route.params.label;
 
   const [ok, setOk] = useState(false);
@@ -36,7 +37,7 @@ const Restaurant = ({navigation, route}) => {
     if(isMounted.current){
       navigation.navigate("Menu", {
         label: label,
-        Mcategory: select
+        Mcategory: select,
       })
     } else {
      isMounted.current = true;

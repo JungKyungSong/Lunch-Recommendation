@@ -11,109 +11,45 @@ import {
   Button,
   ScrollView
 } from 'react-native';
+import { set } from 'react-native-reanimated';
 
 
 const Menu = ({navigation, route}) => {
-  const [select, setselect] = useState(0);
 
   const label = route.params.label;
   const Mcategory = route.params.Mcategory;
-  const Scategory = 3;
 
-  let label_result = ""
-  let Mcategory_result = ""
-  let Scategory_result = "초밥"
+  const list =
+    [["고기구이", "국밥/해장국", "국수/만두/칼국수", "냉면집", "족발/보쌈", "찌개/국물", "찜닭/닭갈비", "한식/백반/한정식"],
+    ["스테이크/폭립", "양식종합", "정통양식/경양식", "파스타/스파게티"],
+    ["마라탕", "양꼬치", "중국집"],
+    ["돈가스", "돈부리/덮밥", "라멘", "샤브샤브", "우동/소바/오뎅", "일식종합", "초밥", "횟집"],
+    ["라면/김밥/어묵", "떡볶이"],
+    ["기타", "도시락", "토스트/샌드위치", "피자", "햄버거"],
+    ["삼계탕", "찜닭/닭갈비", "후라이드/양념치킨"],
+    ["동남아음식", "죽전문점", "타코", "퓨전음식"]]
 
-  if (label===1) {
-      label_result = "다이어트"
-  }
-  else if (label===2) {
-      label_result = "데이트"
-  }
-  else if (label===3) {
-      label_result = "공부"
-  }
-  else if (label===4) {
-      label_result = "찐맛집"
-  }
-  else if (label===5) {
-      label_result = "모임"
-  }
-  else if (label===6) {
-      label_result = "번개추천"
-  }
+  const array = list[Mcategory-1]
 
-  if (Mcategory===1) {
-      Mcategory_result = "한식"
-  }
-  else if (Mcategory===2) {
-      Mcategory_result = "양식"
-  }
-  else if (Mcategory===3) {
-      Mcategory_result = "중식"
-  }
-  else if (Mcategory===4) {
-      Mcategory_result = "일식"
-  }
-  else if (Mcategory===5) {
-      Mcategory_result = "분식"
-  }
-  else if (Mcategory===6) {
-      Mcategory_result = "패스트푸드"
-  }
-  else if (Mcategory===7) {
-      Mcategory_result = "닭요리"
-  }
-  else if (Mcategory===8) {
-      Mcategory_result = "별식/퓨전요리"
-  }
-
-  console.log(label_result)
-  console.log(Mcategory_result)
-  console.log(Scategory_result)
-  
+  const [select, setselect] = useState(0);
   const [result, setResult] = useState();
   const [ok, setOk] = useState(false);
   const isMounted = useRef(false);
   const secondRef = useRef();
 
   const setclick1 = () => setselect(1);
-  const setclick2 = () => setselect(2);
-  const setclick3 = () => setselect(3);
-  const setclick4 = () => setselect(4);
-  
-  const cfArr = [
-    { id: "0", where: "횟집", image: '../images/carrot.png', bf: "설렁탕", lc: "오므라이스", dn: "김치찌개"},
-    { id: "1", where: "초밥", image: '../images/ex_images.png', bf: "수육국밥", lc: "치킨", dn: "피자"},
-    { id: "2", where: "돈부리", image: '../images/ex_images.png', bf: "순대국밥", lc: "부대찌개", dn: "뚝배기불고기"},
-    { id: "3", where: "라멘", image: '../images/ex_images.png', bf: "김밥", lc: "닭볶음탕", dn: "닭갈비"},
-    { id: "4", where: "돈까스", image: '../images/ex_images.png', bf: "감자탕", lc: "알밥", dn: "찜닭"},
-];
 
-const sendResult = async () => {
-  try {
-    const response = await fetch("http://127.0.0.1:8080/category/result", {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        label: label_result,
-        Mcategory: Mcategory_result,
-        Scategory: Scategory_result
-      }), 
-    }).then(response => console.log(response.status));
-    setResult(response.status);
-  } catch (e) {}
-};
-
-useEffect(() => {
+  useEffect(() => {
     if(isMounted.current){
-      sendResult();
-      navigation.navigate("Result")
+      navigation.navigate("Result", {
+         label: label,
+         Mcategory: Mcategory,
+         Scategory: select
+      })
     } else {
      isMounted.current = true;
     }
   }, [ok]);
-
 
     return (
     
@@ -125,19 +61,23 @@ useEffect(() => {
                     contentContainerStyle={{ flexGrow: 1 }}
                     contentInsetAdjustmentBehavior="automatic">
                     <View style={styles.cf_container}>
-                        {cfArr.map((array, index) => {
+                        {array.map((item, index) => {
                             return(
                                 <View
                                         key={index}
                                         style={styles.cf_each}
                                 >   
-                                    <View style={styles.image_container}>
-                                    <Image style={styles.image} source= {require('../images/ex_images.png')}/>
-                                    </View>
-                                    <View>
-                                        <Text style={styles.cf_text}>{array.where}</Text>
-                                    </View>
-
+                                <View style={{flex: 1, alignItems: "center"}}>
+                                  <View style={{alignItems: 'center', }}>
+                                  <TouchableOpacity onPress={setclick1}>
+                                    <Image style={[styles.image,{opacity: (select=== index+1 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
+                                  </TouchableOpacity>
+                                  </View>
+                                  <View>
+                                  <Text style={styles.image_text}>{item}</Text>
+                                  </View>
+                              </View>
+                                    
                                 </View>
                             );
                         })
