@@ -28,6 +28,7 @@ function Mypage({ navigation }) {
   const [imageFile, setImageFile] = useState();
   const [imageName, setImageName] = useState();
   const isMounted = useRef(false);
+  const isMounted2 = useRef(false);
   const [ok, setOk] = useState(false);
 
   const [select1, setselect1] = useState(false);
@@ -129,11 +130,11 @@ const sendResult = async () => {
     };
 
     useEffect(() => {
-      if(isMounted.current){
+      if(isMounted2.current){
       sendResult2();
-      //navigation.navigate("Info")
+      navigation.navigate("Info")
       } else {
-      isMounted.current = true;
+      isMounted2.current = true;
       }
      }, [ok]);
 
