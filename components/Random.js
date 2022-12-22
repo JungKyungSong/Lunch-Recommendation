@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,Component, useEffect, useRef} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -55,13 +55,36 @@ import r from "../images/35.jpg";
 import rr from "../images/36.jpg";
 import z from "../images/0.jpg";
 
-
+//const [ok, setOk] = useState(false);
 
 const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 const list = 
   [z,a,aa,b,bb,c,cc,d,dd,e,ee,f,ff,g,gg,h,hh,i,ii,j,jj,k,kk,l,ll,m,mm,n,nn,o,oo,p,pp,q,qq,r,rr]
 const list2 =
   [getRandom(0,36),getRandom(0,36),getRandom(0,36),getRandom(0,36),getRandom(0,36)]
+
+  console.log(list2)
+  // const sendResult = async () => {
+  //   try {
+  //     const response = await fetch("http://127.0.0.1:8080/image/result", {
+  //       method: "POST",
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({
+  //         num: list2
+  //       }), 
+  //     }).then(response => console.log(response.status));
+  //     setResult(response.status);
+  //   } catch (e) {}
+  // };
+
+  // useEffect(() => {
+  //   if(isMounted.current){
+  //     sendResult();
+  //     //navigation.navigate("Result");
+  //   } else {
+  //    isMounted.current = true;
+  //   }
+  // }, []);
 
 
 
@@ -179,7 +202,9 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
         ]).start(() => {
           swipedDirection(swipeDirection);
           removeCard();
-          const array = [...array, 0];
+          console.log('좋아요')
+          array.push('true')
+          console.log(array)
           Alert.alert('좋아요');
         });
       } else if (gestureState.dx < -SCREEN_WIDTH + 150) {
@@ -197,7 +222,9 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
         ]).start(() => {
           swipedDirection(swipeDirection);
           removeCard();
-          const array = [...array, 0];
+          console.log('싫어요')
+          array.push('false')
+          console.log(array)
           Alert.alert('싫어요');
         });
       }
@@ -221,6 +248,10 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
 };
 
 const Random = ({navigation}) => {
+  const isMounted = useRef(false);
+
+  const secondRef = useRef();
+  const [ok, setOk] = useState(false);
   const [noMoreCard, setNoMoreCard] = useState(false);
   const [
     sampleCardArray,
@@ -244,13 +275,36 @@ const Random = ({navigation}) => {
     setSwipeDirection(swipeDirection);
   };
 
+  const sendResult = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8080/image/result", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          num: list2,
+          tf: array,
+        }), 
+      }).then(response => console.log(response.status));
+      setResult(response.status);
+    } catch (e) {}
+  };
+
+  useEffect(() => {
+    if(isMounted.current){
+      sendResult();
+      navigation.navigate("Result");
+    } else {
+     isMounted.current = true;
+    }
+  }, [ok]);
+
   return (
     <SafeAreaView style={{flex: 1, marginBottom:"5%"}}>
       <Text style={styles.titleText}>
         랜덤 추천기
       </Text>
       <Text style={styles.swipeText}>
-        마음에 든다면 오른쪽으로 넘기거나 {'\n'}하단 버튼을 눌러주세요!
+        마음에 든다면 오른쪽으로 넘겨 주세요!
       
       </Text>
       <View style={styles.container}>
@@ -270,7 +324,7 @@ const Random = ({navigation}) => {
           </Text>
 
           <TouchableOpacity
-                        onPress={() => navigation.navigate("Result")}
+                        onPress={() => setOk(!ok)}
                         style={styles.random_btn}
                     >
                     <Text style={styles.text}>랜덤 추천 결과보기</Text>
@@ -281,15 +335,15 @@ const Random = ({navigation}) => {
           
         ) : null}
       </View>
-      <TouchableOpacity
+      {/* <TouchableOpacity
                         onPress={() => removeCard()}
                         style={styles.login_btn}
                     >
                     <Text style={styles.text}>그냥 이거 바로 먹을래요!</Text>
                 
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity
-                        onPress={() => navigation.navigate('Result')}
+                        onPress={() => setOk(!ok)}
                         style={styles.register_btn}
                     >
                     <Text style={styles.text2}>이전</Text>
@@ -385,4 +439,3 @@ image:{
   
   }
 });
-
