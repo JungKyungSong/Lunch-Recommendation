@@ -32,7 +32,7 @@ function Detail({ navigation }) {
 
     const getResult = async () => {
         const response = await fetch(
-            "http://127.0.0.1:8080/category/result/name"
+            "http://127.0.0.1:8080/category/detail/name"
           );
         const json = await response.json();
         //     const json = {
