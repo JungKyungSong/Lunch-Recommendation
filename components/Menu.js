@@ -31,7 +31,7 @@ const Menu = ({navigation}) => {
   const [ok, setOk] = useState(false);
   const isMounted = useRef(false);
   const secondRef = useRef();
-  const [num, setNum] = useState(0);
+  const [num, setNum] = useState(1);
 
   var f_obj = {}
   f_obj.setclick1 = () => setselect(1);
@@ -90,7 +90,7 @@ const Menu = ({navigation}) => {
                     contentContainerStyle={{ flexGrow: 1 }}
                     contentInsetAdjustmentBehavior="automatic">
                     <View style={styles.cf_container}>
-                        {list[2].map((item, index) => {
+                        {list[num-1].map((item, index) => {
                             return(
                                 <View
                                         key={index}
@@ -98,7 +98,7 @@ const Menu = ({navigation}) => {
                                 >   
                                 <View style={{flex: 1, alignItems: "center"}}>
                                   <View style={{alignItems: 'center', }}>
-                                  <TouchableOpacity onPress={f_obj['setclick'+index]}>
+                                  <TouchableOpacity onPress={f_obj['setclick'+(index+1)]}>
                                     <Image style={[styles.image,{opacity: (select=== index+1 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
                                   </TouchableOpacity>
                                   </View>
