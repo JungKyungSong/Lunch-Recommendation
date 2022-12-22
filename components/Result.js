@@ -69,8 +69,7 @@ function Result({ navigation }) {
             <View style={styles.title_container}>
                 <Text style={styles.title}>이곳에서 식사는 어떠실까요?</Text>
             </View>
-            <View 
-                style={styles.scroll_container}>
+            <View>
                 <ScrollView 
                     style={styles.scroll_container}
                     contentContainerStyle={{ flexGrow: 1 }}
@@ -706,7 +705,6 @@ const styles = StyleSheet.create({
     scroll_container: {
         marginTop: "4%",
         width: "100%",
-        height: "55%"
     },
     rt_each:{
         //backgroundColor: "blue",
