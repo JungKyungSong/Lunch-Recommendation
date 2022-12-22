@@ -23,12 +23,13 @@ import yonsei from "../images/yonsei.png";
 import everytime from "../images/everytime.png";
 
 
-
 function Mypage({ navigation }) {
 
   const [imageFile, setImageFile] = useState();
   const [imageName, setImageName] = useState();
   const isMounted = useRef(false);
+  const [ok, setOk] = useState(false);
+
   const [select1, setselect1] = useState(false);
   const setclick1 = () => setselect1(!select1);
 
@@ -53,11 +54,8 @@ function Mypage({ navigation }) {
   const [select8, setselect8] = useState(false);
   const setclick8 = () => setselect8(!select8);
 
-  const [select9, setselect9] = useState(false);
-  const setclick9 = () => setselect9(!select9);
-
   const [image, setimage] = useState(true);
-  
+  const [nickname, setNickname] = useState("");
 
   const rtArr = [
       { id: "0", name: "박유찬님", image: everytime, prefer1:"공학관", prefer2:"언더우드관"},
@@ -117,6 +115,42 @@ const sendResult = async () => {
             }
     }, [imageFile]);
 
+    const sendResult2 = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8080/login/building", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            building: [select1,select2,select3,select4,select5,select6,select7,select8]
+          }), 
+        }).then(response => console.log(response.status));
+        setResult(response.status);
+      } catch (e) {}
+    };
+
+    useEffect(() => {
+      if(isMounted.current){
+      sendResult2();
+      navigation.navigate("Info")
+      } else {
+      isMounted.current = true;
+      }
+}, [ok]);
+
+    const getResult = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:8080/login/nickname"
+        );
+           const json = await response.json();
+           setNickname(Object.values(json["nickname"]))
+       } catch (e) {}
+     };
+   
+   useEffect(() => {
+       getResult();
+   }, []);
+
       return (
         <SafeAreaView style={styles.container}>
         <StatusBar style="auto"/>
@@ -136,7 +170,7 @@ const sendResult = async () => {
                             <View style={styles.info_container}>
                                 <View style={styles.line}>
                                     <View>
-                                        <Text style={styles.rt_name}>🧑🏻‍💻{array.name}</Text>
+                                        <Text style={styles.rt_name}>🧑🏻‍💻{nickname}</Text>
                                     </View>
                                 </View>
 
@@ -425,7 +459,7 @@ const sendResult = async () => {
         </View>
         </View>
         <TouchableOpacity
-                    onPress={() => navigation.navigate("Info")}
+                    onPress={() => setOk(true)}
                     style={styles.login_btn}
                 >
                 <Text style={styles.text}>다음</Text>
