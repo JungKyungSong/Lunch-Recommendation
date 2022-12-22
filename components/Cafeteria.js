@@ -14,6 +14,12 @@ import {
 import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 import cafeteria from "../images/cafeteria.png";
 import yonsei from "../images/yonsei.png";
+import manna from "../images/manna.png";
+import hankyung from "../images/hankyung.png";
+import chunggyeong from "../images/chunggyeong.png";
+import buruel from "../images/buruel.png";
+import goreul from "../images/goreul.png";
+
 
 function Cafeteria({ navigation }) {
 
@@ -189,7 +195,7 @@ function Cafeteria({ navigation }) {
                                         style={styles.cf_mat}
                                 >   
                                     <View style={styles.image_container}>
-                                        <Image style={styles.image} source={cafeteria}></Image>
+                                        <Image style={styles.image} source={manna}></Image>
                                     </View>
                                     <View>
                                         <Text style={styles.cf_text}>맛나샘</Text>
@@ -227,7 +233,7 @@ function Cafeteria({ navigation }) {
                                         style={styles.cf_han}
                                 >   
                                     <View style={styles.image_container}>
-                                        <Image style={styles.image} source={cafeteria}></Image>
+                                        <Image style={styles.image} source={hankyung}></Image>
                                     </View>
                                     <View>
                                         <Text style={styles.cf_text}>한경관</Text>
@@ -296,7 +302,7 @@ function Cafeteria({ navigation }) {
                                         style={styles.cf_chung}
                                 >   
                                     <View style={styles.image_container}>
-                                        <Image style={styles.image} source={cafeteria}></Image>
+                                        <Image style={styles.image} source={chunggyeong}></Image>
                                     </View>
                                     <View>
                                         <Text style={styles.cf_text}>청경관</Text>
@@ -316,7 +322,7 @@ function Cafeteria({ navigation }) {
                                         style={styles.cf_bu}
                                 >   
                                     <View style={styles.image_container}>
-                                        <Image style={styles.image} source={cafeteria}></Image>
+                                        <Image style={styles.image} source={buruel}></Image>
                                     </View>
                                     <View>
                                         <Text style={styles.cf_text}>부를샘</Text>
@@ -366,7 +372,7 @@ function Cafeteria({ navigation }) {
                                         style={styles.cf_go}
                                 >   
                                     <View style={styles.image_container}>
-                                        <Image style={styles.image} source={cafeteria}></Image>
+                                        <Image style={styles.image} source={goreul}></Image>
                                     </View>
                                     <View>
                                         <Text style={styles.cf_text}>고를샘</Text>
@@ -482,9 +488,9 @@ const styles = StyleSheet.create({
       resizeMode: "cover",
     },
     image:{
-        width: 80,
-        height: 80,
-        marginLeft: "20%",
+        width: 100,
+        height: 100,
+        marginLeft: "15%",
         marginRight: "-10%"
     },
     title_container: {
