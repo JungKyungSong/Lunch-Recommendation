@@ -14,11 +14,8 @@ import {
 import cafeteria from "../images/cafeteria.png";
 
 
-const Restaurant = ({navigation, route}) => {
+const Restaurant = ({navigation}) => {
   const [select, setselect] = useState(0);
-  const [arr, setArr] = useState([]);
-  const label = route.params.label;
-
   const [ok, setOk] = useState(false);
   const isMounted = useRef(false);
 
@@ -33,12 +30,24 @@ const Restaurant = ({navigation, route}) => {
   const setclick7 = () => setselect(7);
   const setclick8 = () => setselect(8);
 
+  const sendResult = async () => {
+    console.log(select)
+    try {
+      const response = await fetch("http://127.0.0.1:8080/category/Mcategory", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          Mcategory: select,
+        }), 
+      }).then(response => console.log(response.status));
+      setResult(response.status);
+    } catch (e) {}
+  };
+
   useEffect(() => {
     if(isMounted.current){
-      navigation.navigate("Menu", {
-        label: label,
-        Mcategory: select,
-      })
+      sendResult();
+      navigation.navigate("Menu");
     } else {
      isMounted.current = true;
     }

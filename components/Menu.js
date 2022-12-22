@@ -14,10 +14,7 @@ import {
 import { set } from 'react-native-reanimated';
 
 
-const Menu = ({navigation, route}) => {
-
-  const label = route.params.label;
-  const Mcategory = route.params.Mcategory;
+const Menu = ({navigation}) => {
 
   const list =
     [["고기구이", "국밥/해장국", "국수/만두/칼국수", "냉면집", "족발/보쌈", "찌개/국물", "찜닭/닭갈비", "한식/백반/한정식"],
@@ -29,27 +26,59 @@ const Menu = ({navigation, route}) => {
     ["삼계탕", "찜닭/닭갈비", "후라이드/양념치킨"],
     ["동남아음식", "죽전문점", "타코", "퓨전음식"]]
 
-  const array = list[Mcategory-1]
-
   const [select, setselect] = useState(0);
   const [result, setResult] = useState();
   const [ok, setOk] = useState(false);
   const isMounted = useRef(false);
   const secondRef = useRef();
+  const [num, setNum] = useState(0);
 
-  const setclick1 = () => setselect(1);
+  var f_obj = {}
+  f_obj.setclick1 = () => setselect(1);
+  f_obj.setclick2 = () => setselect(2);
+  f_obj.setclick3 = () => setselect(3);
+  f_obj.setclick4 = () => setselect(4);
+  f_obj.setclick5 = () => setselect(5);
+  f_obj.setclick6 = () => setselect(6);
+  f_obj.setclick7 = () => setselect(7);
+  f_obj.setclick8 = () => setselect(8);
+
+  const sendResult = async () => {
+    console.log(select)
+    try {
+      const response = await fetch("http://127.0.0.1:8080/category/Scategory", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          Scategory: select,
+        }), 
+      }).then(response => console.log(response.status));
+      setResult(response.status);
+    } catch (e) {}
+  };
 
   useEffect(() => {
     if(isMounted.current){
-      navigation.navigate("Result", {
-         label: label,
-         Mcategory: Mcategory,
-         Scategory: select
-      })
+      sendResult();
+      navigation.navigate("Result");
     } else {
      isMounted.current = true;
     }
   }, [ok]);
+
+  const getResult = async () => {
+    try {
+      const response = await fetch(
+        "http://127.0.0.1:8080/category/Scategory"
+      );
+         const json = await response.json();
+         setNum(Object.values(json["number"]))
+     } catch (e) {}
+   };
+
+  useEffect(() => {
+      getResult();
+  }, [])
 
     return (
     
@@ -61,7 +90,7 @@ const Menu = ({navigation, route}) => {
                     contentContainerStyle={{ flexGrow: 1 }}
                     contentInsetAdjustmentBehavior="automatic">
                     <View style={styles.cf_container}>
-                        {array.map((item, index) => {
+                        {list[2].map((item, index) => {
                             return(
                                 <View
                                         key={index}
@@ -69,7 +98,7 @@ const Menu = ({navigation, route}) => {
                                 >   
                                 <View style={{flex: 1, alignItems: "center"}}>
                                   <View style={{alignItems: 'center', }}>
-                                  <TouchableOpacity onPress={setclick1}>
+                                  <TouchableOpacity onPress={f_obj['setclick'+index]}>
                                     <Image style={[styles.image,{opacity: (select=== index+1 || select===0)? 1 : 0.2}]} source={require('../images/ex_images.png')}/>
                                   </TouchableOpacity>
                                   </View>

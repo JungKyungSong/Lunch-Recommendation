@@ -26,8 +26,23 @@ const Category = ({navigation}) => {
   const setclick5 = () => setselect(5);
   const setclick6 = () => setselect(6);
 
+  const sendResult = async () => {
+    console.log(select)
+    try {
+      const response = await fetch("http://127.0.0.1:8080/category/label", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          label: label_result,
+        }), 
+      }).then(response => console.log(response.status));
+      setResult(response.status);
+    } catch (e) {}
+  };
+
   useEffect(() => {
     if(isMounted.current){
+      sendResult();
       navigation.navigate("Restaurant", {
         label: select,  
       })
