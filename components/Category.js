@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -14,6 +14,10 @@ import {
 
 const Category = ({navigation}) => {
   const [select, setselect] = useState(0);
+  const [ok, setOk] = useState(false);
+  const isMounted = useRef(false);
+
+  const secondRef = useRef();
 
   const setclick1 = () => setselect(1);
   const setclick2 = () => setselect(2);
@@ -21,6 +25,16 @@ const Category = ({navigation}) => {
   const setclick4 = () => setselect(4);
   const setclick5 = () => setselect(5);
   const setclick6 = () => setselect(6);
+
+  useEffect(() => {
+    if(isMounted.current){
+      navigation.navigate("Restaurant", {
+        label: select,  
+      })
+    } else {
+     isMounted.current = true;
+    }
+  }, [ok]);
 
     return (
     
@@ -74,7 +88,7 @@ const Category = ({navigation}) => {
                 <Text>잘 모르시겠다면 번개추천을 눌러주세요</Text>
 
                 <TouchableOpacity
-                        onPress={() => navigation.navigate("Restaurant")}
+                        onPress={() => setOk(true)}
                         style={styles.login_btn}
                     >
                     <Text style={styles.text}>다음</Text>

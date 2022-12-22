@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -14,8 +14,14 @@ import {
 import cafeteria from "../images/cafeteria.png";
 
 
-const Restaurant = ({navigation}) => {
+const Restaurant = ({navigation, route}) => {
   const [select, setselect] = useState(0);
+  const label = route.params.label;
+
+  const [ok, setOk] = useState(false);
+  const isMounted = useRef(false);
+
+  const secondRef = useRef();
 
   const setclick1 = () => setselect(1);
   const setclick2 = () => setselect(2);
@@ -25,6 +31,17 @@ const Restaurant = ({navigation}) => {
   const setclick6 = () => setselect(6);
   const setclick7 = () => setselect(7);
   const setclick8 = () => setselect(8);
+
+  useEffect(() => {
+    if(isMounted.current){
+      navigation.navigate("Menu", {
+        label: label,
+        Mcategory: select
+      })
+    } else {
+     isMounted.current = true;
+    }
+  }, [ok]);
     return (
     
         <SafeAreaView style={styles.container}>
@@ -135,7 +152,7 @@ const Restaurant = ({navigation}) => {
 
 
               <TouchableOpacity
-                        onPress={() => navigation.navigate("Menu")}
+                        onPress={() => setOk(true)}
                         style={styles.login_btn}
                     >
                     <Text style={styles.text}>다음</Text>

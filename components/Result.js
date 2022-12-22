@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -16,6 +16,7 @@ import yonsei from "../images/yonsei.png";
 
 function Result({ navigation }) {
 
+
     const rtArr = [
         { id: "0", name: "미분당", image: cafeteria, score: "4.2", review: "16", address: "연희", category: "일식", hash: "#덮밥"},
         { id: "1", name: "효계", image: cafeteria, score: "4.2", review: "16", address: "신촌", category: "일식", hash: "#덮밥"},
@@ -25,7 +26,7 @@ function Result({ navigation }) {
     ];
 
     const [category, setCategory] = useState('diary');
-
+  
     return (
         <View style={styles.container}>
             <StatusBar style="auto"/>

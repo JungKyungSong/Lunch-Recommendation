@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -13,8 +13,69 @@ import {
 } from 'react-native';
 
 
-const Menu = ({navigation}) => {
+const Menu = ({navigation, route}) => {
   const [select, setselect] = useState(0);
+
+  const label = route.params.label;
+  const Mcategory = route.params.Mcategory;
+  const Scategory = 3;
+
+  let label_result = ""
+  let Mcategory_result = ""
+  let Scategory_result = "초밥"
+
+  if (label===1) {
+      label_result = "다이어트"
+  }
+  else if (label===2) {
+      label_result = "데이트"
+  }
+  else if (label===3) {
+      label_result = "공부"
+  }
+  else if (label===4) {
+      label_result = "찐맛집"
+  }
+  else if (label===5) {
+      label_result = "모임"
+  }
+  else if (label===6) {
+      label_result = "번개추천"
+  }
+
+  if (Mcategory===1) {
+      Mcategory_result = "한식"
+  }
+  else if (Mcategory===2) {
+      Mcategory_result = "양식"
+  }
+  else if (Mcategory===3) {
+      Mcategory_result = "중식"
+  }
+  else if (Mcategory===4) {
+      Mcategory_result = "일식"
+  }
+  else if (Mcategory===5) {
+      Mcategory_result = "분식"
+  }
+  else if (Mcategory===6) {
+      Mcategory_result = "패스트푸드"
+  }
+  else if (Mcategory===7) {
+      Mcategory_result = "닭요리"
+  }
+  else if (Mcategory===8) {
+      Mcategory_result = "별식/퓨전요리"
+  }
+
+  console.log(label_result)
+  console.log(Mcategory_result)
+  console.log(Scategory_result)
+  
+  const [result, setResult] = useState();
+  const [ok, setOk] = useState(false);
+  const isMounted = useRef(false);
+  const secondRef = useRef();
 
   const setclick1 = () => setselect(1);
   const setclick2 = () => setselect(2);
@@ -28,6 +89,32 @@ const Menu = ({navigation}) => {
     { id: "3", where: "라멘", image: '../images/ex_images.png', bf: "김밥", lc: "닭볶음탕", dn: "닭갈비"},
     { id: "4", where: "돈까스", image: '../images/ex_images.png', bf: "감자탕", lc: "알밥", dn: "찜닭"},
 ];
+
+const sendResult = async () => {
+  try {
+    const response = await fetch("http://127.0.0.1:8080/result", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        label: label_result,
+        Mcategory: Mcategory_result,
+        Scategory: Scategory_result
+      }), 
+    }).then(response => console.log(response.status));
+    setResult(response.status);
+  } catch (e) {}
+};
+
+useEffect(() => {
+    if(isMounted.current){
+      sendResult();
+      navigation.navigate("Result")
+    } else {
+     isMounted.current = true;
+    }
+  }, [ok]);
+
+
     return (
     
         <SafeAreaView style={styles.container}>
@@ -58,7 +145,7 @@ const Menu = ({navigation}) => {
                     </View>
                 </ScrollView>
                 <TouchableOpacity
-                        onPress={() => navigation.navigate("Result")}
+                        onPress={() => setOk(true)}
                         style={styles.login_btn}
                     >
                     <Text style={styles.text}>다음</Text>
