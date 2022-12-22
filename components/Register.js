@@ -124,7 +124,6 @@ function Register({ navigation }) {
                             </TextInput>
                         </View>
                     </View>
-                    <Text>id: {id}, pw: {pw}, pwc: {pwc}, nn: {nn}</Text>
                     <TouchableOpacity
                         onPress={() => Alert.alert(
                             '회원가입',

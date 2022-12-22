@@ -15,6 +15,10 @@ import {
 
 const Info = ({navigation}) => {
   const [select, setselect] = useState(0);
+  const [result, setResult] = useState();
+  const isMounted = useRef(false);
+  const secondRef = useRef();
+  const [ok, setOk] = useState(false);
 
   const setclick1 = () => setselect(1);
   const setclick2 = () => setselect(2);
@@ -29,6 +33,30 @@ const Info = ({navigation}) => {
   const setclick11 = () => setselect(11);
   const setclick12 = () => setselect(12);
 
+
+  const sendResult = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8080/time", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: "찬길",
+          emptyTime: "3",
+          startpoint: "공학관"
+        }), 
+      }).then(response => console.log(response.status));
+      setResult(response.status);
+    } catch (e) {}
+  };
+
+  useEffect(() => {
+    if(isMounted.current){
+      sendResult();
+      navigation.navigate("Cafeteria");
+    } else {
+     isMounted.current = true;
+    }
+  }, [ok]);
     return (
     
         <SafeAreaView style={styles.container}>
@@ -116,7 +144,7 @@ const Info = ({navigation}) => {
             
 
                 <TouchableOpacity
-                        onPress={() => navigation.navigate("Cafeteria")}
+                        onPress={() => setOk(true)}
                         style={styles.login_btn}
                     >
                     <Text style={styles.text}>다음</Text>

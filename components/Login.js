@@ -95,7 +95,6 @@ function Login({ navigation }) {
                             </TextInput>
                         </View>
                     </View>
-                    <Text>id: {id}, pw: {pw}</Text>
                     <TouchableOpacity
                         onPress={() => 
                           setOk(true)
