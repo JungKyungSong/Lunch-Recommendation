@@ -21,6 +21,33 @@ import everytime from "../images/everytime.png";
 
 
 function Mypage({ navigation }) {
+    const [select1, setselect1] = useState(false);
+    const setclick1 = () => setselect1(!select1);
+
+    const [select2, setselect2] = useState(false);
+    const setclick2 = () => setselect2(!select2);
+
+    const [select3, setselect3] = useState(false);
+    const setclick3 = () => setselect3(!select3);
+
+    const [select4, setselect4] = useState(false);
+    const setclick4 = () => setselect4(!select4);
+
+    const [select5, setselect5] = useState(false);
+    const setclick5 = () => setselect5(!select5);
+
+    const [select6, setselect6] = useState(false);
+    const setclick6 = () => setselect6(!select6);
+
+    const [select7, setselect7] = useState(false);
+    const setclick7 = () => setselect7(!select7);
+
+    const [select8, setselect8] = useState(false);
+    const setclick8 = () => setselect8(!select8);
+
+    const [select9, setselect9] = useState(false);
+    const setclick9 = () => setselect9(!select9);
+  
 
     const rtArr = [
         { id: "0", name: "박유찬님", image: everytime, prefer1:"공학관", prefer2:"언더우드관"},
@@ -68,7 +95,7 @@ function Mypage({ navigation }) {
                 </View>
                 
                 <View style={styles.image_container}>
-                    <Text style={styles.image_text}>내 시간표</Text>
+                    <Text style={styles.image_text}>📆내 시간표</Text>
                     <Image source={everytime} style={styles.image}/>
 
                 </View>
@@ -81,35 +108,246 @@ function Mypage({ navigation }) {
 
 
 
-
-            <View style={styles.lecture_container}>
-
             <View style={styles.container2}>
-            <Text style={styles.text}>즐겨찾는 강의실</Text>
+            <Text style={styles.text}>즐겨찾는 강의실⭐️</Text>
                 <TouchableOpacity 
                 onPress={() => navigation.navigate("Classroom")}>    
                     <Text style={styles.star}> ⚙️ </Text>
                 </TouchableOpacity>
             </View>
-            </View>
+            <View style={styles.lecture_container}>
+            
                 
-            <View style={styles.container3}>
-                    {rtArr.map((array, index) => {
-                        return(        
-                <TouchableOpacity 
-                    style={styles.info_btn}
-                    onPress={() => navigation.navigate("Start")}>
-                    
-                    <Text style={styles.btn_text}>{array.prefer1}</Text>
-                    <Text style={styles.star}>⭐️</Text>
-                    
-                </TouchableOpacity>)
+            <View style={styles.view_style}>
+            <TouchableOpacity onPress={() => Alert.alert(
+                            '즐겨찾는 강의실',
+                            '즐겨찾는 강의실로 등록하시겠습니까?',
+                            [
+                              {text: '아니요(취소)', onPress:() =>
+                              Alert.alert(
+                                '취소 완료',
+                                '성공적으로 취소되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect1(false)}},
+                                ]
+                              )
+                              },
+                              {text: '네(등록)', onPress:() =>
+                              Alert.alert(
+                                '등록 완료',
+                                '성공적으로 등록되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect1(true)}},
+                                ])
+                                
+                              },
+                            ]
+                          )}
+                style={[styles.info_btn,{opacity: (select1)? 1 : 0.3},{backgroundColor:(select1)?"#92BEE7":"white"}]}>                    
+                <Text style={styles.btn_text}>공학관</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert(
+                            '즐겨찾는 강의실',
+                            '즐겨찾는 강의실로 등록하시겠습니까?',
+                            [
+                              {text: '아니요(취소)', onPress:() =>
+                              Alert.alert(
+                                '취소 완료',
+                                '성공적으로 취소되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect2(false)}},
+                                ]
+                              )
+                              },
+                              {text: '네(등록)', onPress:() =>
+                              Alert.alert(
+                                '등록 완료',
+                                '성공적으로 등록되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect2(true)}},
+                                ])
+                                
+                              },
+                            ]
+                          )}
+                style={[styles.info_btn,{opacity: (select2)? 1 : 0.3},{backgroundColor:(select2)?"#92BEE7":"white"}]}>                    
+                <Text style={styles.btn_text}>공학원</Text>
+            </TouchableOpacity>
 
-                                    })
-                                } 
-
-
+            <TouchableOpacity onPress={() => Alert.alert(
+                            '즐겨찾는 강의실',
+                            '즐겨찾는 강의실로 등록하시겠습니까?',
+                            [
+                              {text: '아니요(취소)', onPress:() =>
+                              Alert.alert(
+                                '취소 완료',
+                                '성공적으로 취소되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect3(false)}},
+                                ]
+                              )
+                              },
+                              {text: '네(등록)', onPress:() =>
+                              Alert.alert(
+                                '등록 완료',
+                                '성공적으로 등록되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect3(true)}},
+                                ])
+                                
+                              },
+                            ]
+                          )}
+                style={[styles.info_btn,{opacity: (select3)? 1 : 0.3},{backgroundColor:(select3)?"#92BEE7":"white"}]}>                    
+                <Text style={styles.btn_text}>대우관</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert(
+                            '즐겨찾는 강의실',
+                            '즐겨찾는 강의실로 등록하시겠습니까?',
+                            [
+                              {text: '아니요(취소)', onPress:() =>
+                              Alert.alert(
+                                '취소 완료',
+                                '성공적으로 취소되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect4(false)}},
+                                ]
+                              )
+                              },
+                              {text: '네(등록)', onPress:() =>
+                              Alert.alert(
+                                '등록 완료',
+                                '성공적으로 등록되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect4(true)}},
+                                ])
+                                
+                              },
+                            ]
+                          )}
+                style={[styles.info_btn,{opacity: (select4)? 1 : 0.3},{backgroundColor:(select4)?"#92BEE7":"white"}]}>                    
+                <Text style={styles.btn_text}>중앙도서관</Text>
+            </TouchableOpacity>
+           
             </View>
+            <View style={styles.view_style}>
+
+            <TouchableOpacity onPress={() => Alert.alert(
+                            '즐겨찾는 강의실',
+                            '즐겨찾는 강의실로 등록하시겠습니까?',
+                            [
+                              {text: '아니요(취소)', onPress:() =>
+                              Alert.alert(
+                                '취소 완료',
+                                '성공적으로 취소되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect5(false)}},
+                                ]
+                              )
+                              },
+                              {text: '네(등록)', onPress:() =>
+                              Alert.alert(
+                                '등록 완료',
+                                '성공적으로 등록되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect5(true)}},
+                                ])
+                                
+                              },
+                            ]
+                          )}
+                style={[styles.info_btn,{opacity: (select5)? 1 : 0.3},{backgroundColor:(select5)?"#92BEE7":"white"}]}>                    
+                <Text style={styles.btn_text}>삼성관</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert(
+                            '즐겨찾는 강의실',
+                            '즐겨찾는 강의실로 등록하시겠습니까?',
+                            [
+                              {text: '아니요(취소)', onPress:() =>
+                              Alert.alert(
+                                '취소 완료',
+                                '성공적으로 취소되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect6(false)}},
+                                ]
+                              )
+                              },
+                              {text: '네(등록)', onPress:() =>
+                              Alert.alert(
+                                '등록 완료',
+                                '성공적으로 등록되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect6(true)}},
+                                ])
+                                
+                              },
+                            ]
+                          )}
+                style={[styles.info_btn,{opacity: (select6)? 1 : 0.3},{backgroundColor:(select6)?"#92BEE7":"white"}]}>                    
+                <Text style={styles.btn_text}>언더우드관</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert(
+                            '즐겨찾는 강의실',
+                            '즐겨찾는 강의실로 등록하시겠습니까?',
+                            [
+                              {text: '아니요(취소)', onPress:() =>
+                              Alert.alert(
+                                '취소 완료',
+                                '성공적으로 취소되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect7(false)}},
+                                ]
+                              )
+                              },
+                              {text: '네(등록)', onPress:() =>
+                              Alert.alert(
+                                '등록 완료',
+                                '성공적으로 등록되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect7(true)}},
+                                ])
+                                
+                              },
+                            ]
+                          )}
+                style={[styles.info_btn,{opacity: (select7)? 1 : 0.3},{backgroundColor:(select7)?"#92BEE7":"white"}]}>                    
+                <Text style={styles.btn_text}>위당관</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert(
+                            '즐겨찾는 강의실',
+                            '즐겨찾는 강의실로 등록하시겠습니까?',
+                            [
+                              {text: '아니요(취소)', onPress:() =>
+                              Alert.alert(
+                                '취소 완료',
+                                '성공적으로 취소되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect8(false)}},
+                                ]
+                              )
+                              },
+                              {text: '네(등록)', onPress:() =>
+                              Alert.alert(
+                                '등록 완료',
+                                '성공적으로 등록되었습니다.',
+                                [
+                                  {text: '확인', onPress:() => {setselect8(true)}},
+                                ])
+                                
+                              },
+                            ]
+                          )}
+                style={[styles.info_btn,{opacity: (select8)? 1 : 0.3},{backgroundColor:(select8)?"#92BEE7":"white"}]}>                    
+                <Text style={styles.btn_text}>경영관</Text>
+            </TouchableOpacity>
+            </View>
+            </View>
+            <TouchableOpacity
+                        onPress={() => navigation.navigate("Info")}
+                        style={styles.login_btn}
+                    >
+                    <Text style={styles.text}>다음</Text>
+              </TouchableOpacity>
 
         </SafeAreaView>
         
@@ -123,10 +361,12 @@ const styles = StyleSheet.create({
       //justifyContent: "center",
     },
     container2: {
-        height: 23,
+        height: 30,
         flexDirection: 'row',
         justifyContent:"space-between",
         width:363,
+        marginTop:"-22%",
+        marginBottom:"17%"
     
       },
       
@@ -147,6 +387,18 @@ const styles = StyleSheet.create({
         borderColor: "#92BEE7"
         
     },
+    info_btn: {
+        alignItems: "center",
+        justifyContent: "center",
+        width: "70%",
+        height: "55%",
+        marginTop: "10%",
+        marginHorizontal: "3%",
+        borderColor: "#92BEE7",
+        backgroundColor:"#92BEE7",
+        borderWidth: 4,
+        borderRadius: 30,
+      },
     title_container: { marginTop: "-5%",
     width: "30%",
     height: "20%"
@@ -173,7 +425,7 @@ const styles = StyleSheet.create({
     image_text: {
         fontSize: 23,
         fontWeight: "bold",
-     
+        width:200,
         marginTop: "40%",
         marginLeft: "3%"
       },
@@ -182,6 +434,16 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "80%"
     },
+    login_btn: {
+        backgroundColor: "#92BEE7",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "30%",
+        height: "5%",
+        marginHorizontal: "10%",
+        borderRadius: 5,
+        marginTop: "2%"
+      },
     map_container: {
         marginTop: "-50%",
         width: "100%",
@@ -197,10 +459,12 @@ const styles = StyleSheet.create({
         marginHorizontal: "3%",
     },
     lecture_container: {
-        marginTop: "-15%",
-        width: 90,
-        height: 100,
-        alignItems: "center",
+        marginTop: "-21%",
+        marginLeft:"35%",
+        marginRight:"10%",
+        width: 300,
+        height: 130,
+        alignItems: "flex-start",
         justifyContent: "center",
     },
     info_container: {
@@ -260,6 +524,13 @@ const styles = StyleSheet.create({
         marginTop: "12%",
         marginLeft: "5%"
     },
+    view_style: {height: 80, width:100,
+        flexDirection: 'row',
+         marginTop: "-7%",
+         marginHorizontal: "40%",
+         alignItems: "flex-end",
+         justifyContent: "flex-end"
+       },
     line: {
         flexDirection: "row"
     },
@@ -300,24 +571,10 @@ const styles = StyleSheet.create({
         
        
       },
-      info_btn: {
-        alignItems: "center",
-        justifyContent: "center",
-        width: "400%",
-        height: "52%",
-        marginTop: "10%",
-        marginRight: "10%",
-        marginHorizontal: "13%",
-        marginLeft: "10%",
-        borderColor: "#92BEE7",
-        borderWidth: 4,
-        borderRadius: 30,
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-      },
+
       btn_text: {
-        fontSize:16,
-        marginLeft: "7%"
+        fontSize:14,
+        marginLeft: "1%"
        
     }
 })
