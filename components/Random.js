@@ -7,8 +7,15 @@ import {
   Dimensions,
   Animated,
   PanResponder,
-  Image
+  Image,
+  TouchableOpacity,
+  Navigation,
+  Icon,
+  Alert,
+  navigation
 } from 'react-native';
+
+import { NavigationScreenProps } from "react-navigation";
 
 import spoon from "../images/ex_images.png";
 import cafeteria from "../images/cafeteria.png";
@@ -78,7 +85,8 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           }),
         ]).start(() => {
           swipedDirection(swipeDirection);
-          removeCard();
+          removeCard()
+          Alert.alert('좋아요');;
         });
       } else if (gestureState.dx < -SCREEN_WIDTH + 150) {
         Animated.parallel([
@@ -94,7 +102,8 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           }),
         ]).start(() => {
           swipedDirection(swipeDirection);
-          removeCard();
+          removeCard()
+          Alert.alert('싫어요');
         });
       }
     },
@@ -116,7 +125,7 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
   );
 };
 
-const App = () => {
+const Random = ({navigation}) => {
   const [noMoreCard, setNoMoreCard] = useState(false);
   const [
     sampleCardArray,
@@ -146,8 +155,8 @@ const App = () => {
         랜덤 추천기
       </Text>
       <Text style={styles.swipeText}>
-        마음에 든다면 오른쪽으로 넘겨주세요!
-        {swipeDirection}
+        마음에 든다면 오른쪽으로 넘기거나 {'\n'}하단 버튼을 눌러주세요!
+      
       </Text>
       <View style={styles.container}>
         {sampleCardArray.map((item, key) => (
@@ -159,17 +168,42 @@ const App = () => {
           />
         ))}
         {noMoreCard ? (
-          <Text style={{fontSize: 22, color: '#000'}}>
+          <View>
+          <Text style={{fontSize: 20, color: '#000'}}>
             이제 음식점 추천을 해드릴게요!{'\n'}
-            잠시만 기다려주세요
+            아래 버튼을 눌러주세요
           </Text>
+
+          <TouchableOpacity
+                        onPress={() => navigation.navigate("Result")}
+                        style={styles.random_btn}
+                    >
+                    <Text style={styles.text}>랜덤 추천 결과보기</Text>
+                
+            </TouchableOpacity>
+            </View>
+          
+          
         ) : null}
       </View>
+      <TouchableOpacity
+                        onPress={() => removeCard()}
+                        style={styles.login_btn}
+                    >
+                    <Text style={styles.text}>그냥 이거 바로 먹을래요!</Text>
+                
+            </TouchableOpacity>
+            <TouchableOpacity
+                        onPress={() => navigation.navigate('Result')}
+                        style={styles.register_btn}
+                    >
+                    <Text style={styles.text}>이전</Text>
+            </TouchableOpacity>
     </SafeAreaView>
   );
 };
 
-export default App;
+export default Random;
 
 const styles = StyleSheet.create({
   container: {
@@ -199,6 +233,42 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
   },
+  register_btn: {
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "80%",
+    height: "5%",
+    marginTop: "5%",
+    marginHorizontal: "10%",
+    borderColor: "#92BEE7",
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+  login_btn: {
+    backgroundColor: "#2B82D4",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "80%",
+    height: "5%",
+    marginHorizontal: "10%",
+    borderRadius: 5,
+    marginTop: "5%"
+  },
+  random_btn: {
+    backgroundColor: "#2B82D4",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "90%",
+    height: "30%",
+    marginHorizontal: "10%",
+    borderRadius: 15,
+    marginTop: "15%"
+  },
+  text: {
+    fontSize:20,
+    marginTop: "1%"
+}
 });
 
 const DEMO_CONTENT = [
