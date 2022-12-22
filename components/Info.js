@@ -20,6 +20,8 @@ const Info = ({navigation}) => {
   const isMounted = useRef(false);
   const secondRef = useRef();
   const [ok, setOk] = useState(false);
+  const [myTime, setMyTime] = useState("");
+  const [nickname, SetNickname] = useState("");
 
   const setclick1 = () => setselect(1);
   const setclick2 = () => setselect(2);
@@ -45,9 +47,8 @@ const Info = ({navigation}) => {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          username: "찬길",
-          emptyTime: "3",
-          startpoint: "공학관"
+          emptyTime: timeselect,
+          startpoint: select
         }), 
       }).then(response => console.log(response.status));
       setResult(response.status);
@@ -62,6 +63,32 @@ const Info = ({navigation}) => {
      isMounted.current = true;
     }
   }, [ok]);
+
+  const getResult = async () => {
+    try {
+      const response = await fetch(
+        "http://127.0.0.1:8080/time"
+      );
+         const json = await response.json();
+         setMyTime(Object.values(json["time"]))
+     } catch (e) {}
+   };
+
+   const getResult2 = async () => {
+    try {
+      const response = await fetch(
+        "http://127.0.0.1:8080/login/nickname"
+      );
+         const json = await response.json();
+         setNickname(Object.values(json["nickname"]))
+     } catch (e) {}
+   };
+ 
+    useEffect(() => {
+        getResult();
+        getResult2();
+    }, []);
+
     return (
     
         <SafeAreaView style={styles.container}>
@@ -145,7 +172,11 @@ const Info = ({navigation}) => {
 
                 </View>  
                 <View style={styles.subtitle}>
-                <Text style={styles.subtext}>username님의 현재 공강시간은 n시간이네요!{"\n"}⏰식사에 쓸 수 있는 시간을 알려주세요</Text>
+                <Text style={styles.subtext}>
+                  {{myTime} === "0시간" ?  
+                  <Text style={styles.subtext}>{nickname}님 수업 중 아니신가요?</Text>
+                  :<Text style={styles.subtext}>{nickname}님의 현재 공강시간은 {myTime}이네요!{"\n"}⏰식사에 쓸 수 있는 시간을 알려주세요</Text>}
+                  </Text>
                 </View>  
                 <View style={styles.view_style2}>
 
