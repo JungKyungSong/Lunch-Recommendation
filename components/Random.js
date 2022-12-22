@@ -12,27 +12,120 @@ import {
   Navigation,
   Icon,
   Alert,
-  navigation
+  navigation,
 } from 'react-native';
 
 import { NavigationScreenProps } from "react-navigation";
 
-import spoon from "../images/ex_images.png";
-import cafeteria from "../images/cafeteria.png";
+import a from "../images/1.jpg";
+import aa from "../images/2.jpg";
+import b from "../images/3.jpg";
+import bb from "../images/4.jpg";
+import c from "../images/5.jpg";
+import cc from "../images/6.jpg";
+import d from "../images/7.jpg";
+import dd from "../images/8.jpg";
+import e from "../images/9.jpg";
+import ee from "../images/10.jpg";
+import f from "../images/11.jpg";
+import ff from "../images/12.jpg";
+import g from "../images/13.jpg";
+import gg from "../images/14.jpg";
+import h from "../images/15.jpg";
+import hh from "../images/16.jpg";
+import i from "../images/17.jpg";
+import ii from "../images/18.jpg";
+import j from "../images/19.jpg";
+import jj from "../images/20.jpg";
+import k from "../images/21.jpg";
+import kk from "../images/22.jpg";
+import l from "../images/23.jpg";
+import ll from "../images/24.jpg";
+import m from "../images/25.jpg";
+import mm from "../images/26.jpg";
+import n from "../images/27.jpg";
+import nn from "../images/28.jpg";
+import o from "../images/29.jpg";
+import oo from "../images/30.jpg";
+import p from "../images/31.jpg";
+import pp from "../images/32.jpg";
+import q from "../images/33.jpg";
+import qq from "../images/34.jpg";
+import r from "../images/35.jpg";
+import rr from "../images/36.jpg";
+import z from "../images/0.jpg";
 
 
+
+const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const list = 
+  [z,a,aa,b,bb,c,cc,d,dd,e,ee,f,ff,g,gg,h,hh,i,ii,j,jj,k,kk,l,ll,m,mm,n,nn,o,oo,p,pp,q,qq,r,rr]
+const list2 =
+  [getRandom(0,36),getRandom(0,36),getRandom(0,36),getRandom(0,36),getRandom(0,36)]
+
+
+
+const array = [];
+
+
+const DCONTENT = [
+  {
+    picture: list[list2[0]]
+  },
+  {
+    picture: list[list2[1]]
+  },
+  {
+    picture: list[list2[2]]
+  },
+  {
+    picture: list[list2[3]]
+  },
+  {
+    picture: list[list2[4]]
+  },
+];
+
+const DEMO = [
+  {
+    id: '1',
+    cardTitle: 'Card 11',
+    backgroundColor: '#FFC107',
+  },
+  {
+    id: '2',
+    cardTitle: 'Card 2',
+    backgroundColor: '#ED2525',
+    
+
+  },
+  {
+    id: '3',
+    cardTitle: 'Card 3',
+    backgroundColor: '#E7088E',
+    
+
+  },
+  {
+    id: '4',
+    cardTitle: 'Card 11',
+    backgroundColor: '#00BCD4',
+
+  },
+  {
+    id: '5',
+    cardTitle: 'Card 5',
+    backgroundColor: '#FFFB14',
+
+  },
+];
+
+const DEMO_CONTENT = DEMO.concat(DCONTENT);
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const SwipeableCard = ({item, removeCard, swipedDirection}) => {
   // let xPosition = new Animated.Value(0);
   const [xPosition, setXPosition] = useState(new Animated.Value(0));
-  const cfArr = [
-    { id: "0", where: "고를샘", image: spoon, bf: "설렁탕", lc: "오므라이스", dn: "김치찌개"},
-    { id: "1", where: "맛나샘", image: cafeteria, bf: "수육국밥", lc: "치킨", dn: "피자"},
-    { id: "2", where: "부를샘", image: spoon, bf: "순대국밥", lc: "부대찌개", dn: "뚝배기불고기"},
-    { id: "3", where: "어울샘", image: cafeteria, bf: "김밥", lc: "닭볶음탕", dn: "닭갈비"},
-    { id: "4", where: "청경관", image: cafeteria, bf: "감자탕", lc: "알밥", dn: "찜닭"},
-    ];
 
   let swipeDirection = '';
   let cardOpacity = new Animated.Value(1);
@@ -85,8 +178,9 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           }),
         ]).start(() => {
           swipedDirection(swipeDirection);
-          removeCard()
-          Alert.alert('좋아요');;
+          removeCard();
+          const array = [...array, 0];
+          Alert.alert('좋아요');
         });
       } else if (gestureState.dx < -SCREEN_WIDTH + 150) {
         Animated.parallel([
@@ -102,7 +196,8 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           }),
         ]).start(() => {
           swipedDirection(swipeDirection);
-          removeCard()
+          removeCard();
+          const array = [...array, 0];
           Alert.alert('싫어요');
         });
       }
@@ -120,7 +215,7 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           transform: [{translateX: xPosition}, {rotate: rotateCard}],
         },
       ]}>
-    <Image source = {(cfArr.image)} style={{width: 293, height: 304}}/>
+    <Image source = {item.picture} style={{width: 330, height: 384}}/>
     </Animated.View>
   );
 };
@@ -140,7 +235,7 @@ const Random = ({navigation}) => {
       1,
     );
     setSampleCardArray(sampleCardArray);
-    if (sampleCardArray.length == 0) {
+    if (sampleCardArray.length == 5) {
       setNoMoreCard(true);
     }
   };
@@ -150,7 +245,7 @@ const Random = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, marginBottom:"5%"}}>
       <Text style={styles.titleText}>
         랜덤 추천기
       </Text>
@@ -168,7 +263,7 @@ const Random = ({navigation}) => {
           />
         ))}
         {noMoreCard ? (
-          <View>
+          <View style={styles.random_container}>
           <Text style={{fontSize: 20, color: '#000'}}>
             이제 음식점 추천을 해드릴게요!{'\n'}
             아래 버튼을 눌러주세요
@@ -197,7 +292,7 @@ const Random = ({navigation}) => {
                         onPress={() => navigation.navigate('Result')}
                         style={styles.register_btn}
                     >
-                    <Text style={styles.text}>이전</Text>
+                    <Text style={styles.text2}>이전</Text>
             </TouchableOpacity>
     </SafeAreaView>
   );
@@ -255,46 +350,39 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: "5%"
   },
+  random_container: {
+    backgroundColor: "#92BEE7",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "80%",
+    height: "50%",
+    marginHorizontal: "10%",
+    borderRadius: 5,
+    marginTop: "5%"
+  },
   random_btn: {
     backgroundColor: "#2B82D4",
     alignItems: "center",
     justifyContent: "center",
-    width: "90%",
+    width: "60%",
     height: "30%",
     marginHorizontal: "10%",
-    borderRadius: 15,
-    marginTop: "15%"
+    borderRadius: 50,
+    marginTop: "20%"
   },
   text: {
     fontSize:20,
-    marginTop: "1%"
-}
+    marginTop: "1%",
+    color:"white"
+},
+text2: {
+  fontSize:20,
+  marginTop: "1%",
+},
+image:{
+    width: 300,
+    height: 300,
+  
+  }
 });
 
-const DEMO_CONTENT = [
-  {
-    id: '1',
-    cardTitle: 'Card 1',
-    backgroundColor: '#FFC107',
-  },
-  {
-    id: '2',
-    cardTitle: 'Card 2',
-    backgroundColor: '#ED2525',
-  },
-  {
-    id: '3',
-    cardTitle: 'Card 3',
-    backgroundColor: '#E7088E',
-  },
-  {
-    id: '4',
-    cardTitle: 'Card 4',
-    backgroundColor: '#00BCD4',
-  },
-  {
-    id: '5',
-    cardTitle: 'Card 5',
-    backgroundColor: '#FFFB14',
-  },
-].reverse();
