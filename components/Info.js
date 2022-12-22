@@ -21,7 +21,7 @@ const Info = ({navigation}) => {
   const secondRef = useRef();
   const [ok, setOk] = useState(false);
   const [myTime, setMyTime] = useState("");
-  const [nickname, SetNickname] = useState("");
+  const [nickname, setNickname] = useState("");
 
   const setclick1 = () => setselect(1);
   const setclick2 = () => setselect(2);
@@ -76,11 +76,14 @@ const Info = ({navigation}) => {
 
    const getResult2 = async () => {
     try {
-      const response = await fetch(
-        "http://127.0.0.1:8080/login/nickname"
-      );
+       const response = await fetch(
+         "http://127.0.0.1:8080/login/nickname"
+       );
+
          const json = await response.json();
+         
          setNickname(Object.values(json["nickname"]))
+         console.log(nickname)
      } catch (e) {}
    };
  
