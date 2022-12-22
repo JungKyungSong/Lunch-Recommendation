@@ -16,6 +16,8 @@ import Result from './components/Result';
 import Detail from './components/Detail';
 import Map from './components/Map';
 import Random from './components/Random';
+import Classroom from './components/Classroom';
+
 
 
 
@@ -40,6 +42,7 @@ function App () {
         <Stack.Screen name="Detail" component={Detail} />
         <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="Random" component={Random} />
+        <Stack.Screen name="Classroom" component={Classroom} />
       </Stack.Navigator>
     </NavigationContainer>
   );
