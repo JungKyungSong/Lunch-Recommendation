@@ -1,7 +1,6 @@
 import {useState, useEffect,useRef} from 'react';
 import {Button} from 'react-native';
 import React from 'react';
-import axios from 'axios';
 import {
   StatusBar,
   StyleSheet,
@@ -17,7 +16,7 @@ import {
 } from 'react-native';
 import main from "../images/main.png"
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
-
+import axios from 'axios'
 
 import cafeteria from "../images/cafeteria.png";
 import yonsei from "../images/yonsei.png";
@@ -28,6 +27,7 @@ import everytime from "../images/everytime.png";
 function Mypage({ navigation }) {
 
   const [imageFile, setImageFile] = useState();
+  const [imageName, setImageName] = useState();
   const isMounted = useRef(false);
 
   const secondRef = useRef();
@@ -44,9 +44,13 @@ function Mypage({ navigation }) {
           if (res.didCancel) {
             Alert.alert("등록이 취소되었습니다");                           // 취소 시
           } else {
-            const { uri } = res.assets[0];
             console.log(res.assets[0])
-            setImageFile(uri);                                            // useState에 저장한다.
+            const { uri } = res.assets[0]
+            //const { filename } = res.assets[0]
+            setImageFile(uri);  
+            //setImageName(filename); 
+            console.log(imageFile)    
+            //console.log(imageName)                                      // useState에 저장한다.
           }
         })
       }
@@ -64,23 +68,26 @@ function Mypage({ navigation }) {
 //       setResult(response.status);
 //     } catch (e) {}
 //     };
+
 const sendResult = async () => {
     const formData = new FormData();
-    const name = imageFile.filename;
+    //const name = Object.values(imageFile["filename"])
+    //const uri = Object.values(imageFile["uri"])
+    //console.log(name)
+    console.log("확인")
+    console.log(imageFile)
     //const [, type] = name.split(".");
     formData.append("file", {
-      name,
+      name: "name",
       type: "image/jpeg",
-      uri: imageFile.uri
+      uri: imageFile
     });
     try {
-      const {
-        data: { path }
-      } = await axios.post("http://127.0.0.1:8080/time/upload", formData, {
+      const response = await axios.post("http://127.0.0.1:8080/time/upload", formData, {
         headers: {
           "content-type": "multipart/form-data"
         }
-      });
+      }).then(response => console.log(response.status));
     } catch (e) {
       Alert.alert("Cant upload", "Try later");
     }
