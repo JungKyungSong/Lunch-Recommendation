@@ -15,6 +15,7 @@ import {
 
 const Info = ({navigation}) => {
   const [select, setselect] = useState(0);
+  const [timeselect, settimeselect] = useState(0);
   const [result, setResult] = useState();
   const isMounted = useRef(false);
   const secondRef = useRef();
@@ -33,6 +34,10 @@ const Info = ({navigation}) => {
   const setclick11 = () => setselect(11);
   const setclick12 = () => setselect(12);
 
+  const settimeclick1 = () => settimeselect(1);
+  const settimeclick2 = () => settimeselect(2);
+  const settimeclick3 = () => settimeselect(3);
+  const settimeclick4 = () => settimeselect(4);
 
   const sendResult = async () => {
     try {
@@ -63,8 +68,9 @@ const Info = ({navigation}) => {
           <StatusBar style="auto"/>
              <Text style={styles.title}>원하는 음식점 찾기</Text>           
             <View style={styles.login_container}>
-            
-                <Text style={styles.text}>현재 계신 건물은 어디인가요?</Text>
+                <View style={styles.subtitle}>
+                <Text style={styles.text}>🏫현재 계신 건물은 어디인가요?</Text>
+                </View>
                 <View style={styles.view_style}>
 
                 <TouchableOpacity onPress={setclick1}
@@ -138,7 +144,33 @@ const Info = ({navigation}) => {
                 </TouchableOpacity>
 
                 </View>  
-                <Text style={styles.text}>오늘의 공강시간을 알려주세요</Text>              
+                <View style={styles.subtitle}>
+                <Text style={styles.subtext}>username님의 현재 공강시간은 n시간이네요!{"\n"}⏰식사에 쓸 수 있는 시간을 알려주세요</Text>
+                </View>  
+                <View style={styles.view_style2}>
+
+                <TouchableOpacity onPress={settimeclick1}
+                    style={[styles.time_btn,{opacity: (timeselect===1 || timeselect===0)? 1 : 0.2}]}>
+                    
+                    <Text style={styles.btn_text}>1시간</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={settimeclick2}
+                    style={[styles.time_btn,{opacity: (timeselect===2 || timeselect===0)? 1 : 0.2}]}>
+                    
+                    <Text style={styles.btn_text}>2시간</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={settimeclick3}
+                    style={[styles.time_btn,{opacity: (timeselect===3 || timeselect===0)? 1 : 0.2}]}>
+                    
+                    <Text style={styles.btn_text}>3시간</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={settimeclick4}
+                    style={[styles.time_btn,{opacity: (timeselect===4 || timeselect===0)? 1 : 0.2}]}>
+                    
+                    <Text style={styles.btn_text}>4시간</Text>
+                </TouchableOpacity>
+
+                </View>             
 
 
             
@@ -147,7 +179,7 @@ const Info = ({navigation}) => {
                         onPress={() => setOk(true)}
                         style={styles.login_btn}
                     >
-                    <Text style={styles.text}>다음</Text>
+                    <Text style={styles.nexttext}>다음</Text>
                 
             </TouchableOpacity>
             <TouchableOpacity
@@ -175,10 +207,17 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "cover",
   },
+  subtitle: {
+    fontSize: 25,
+    fontWeight: "bold",
+    textAlignVertical: 'center',
+    textAlign: 'center',
+    marginTop: "7%",
+    marginLeft:"5%"
+  },
   title: {
     fontSize: 25,
     fontWeight: "bold",
-    color: "#2B82D4",
     textAlignVertical: 'center',
     textAlign: 'center',
     marginTop: "10%"
@@ -224,6 +263,10 @@ const styles = StyleSheet.create({
     color: "#878787",
     marginBottom: "4%"
   },
+  subtext: {
+    fontSize: 18,
+    marginBottom: "4%"
+  },
   login_btn: {
       backgroundColor: "#2B82D4",
       alignItems: "center",
@@ -256,16 +299,16 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderRadius: 5,
     },
-    info_btn2: {
+    time_btn: {
         alignItems: "center",
         justifyContent: "center",
-        width: "70%",
-        height: "52%",
+        width: "23%",
+        height: "44%",
         marginTop: "10%",
         marginHorizontal: "3%",
         borderColor: "#92BEE7",
         borderWidth: 4,
-        borderRadius: 30,
+        borderRadius: 50,
         hitSlop:{ top: 60, bottom: 400000, left: 60, right: 60 },
       },
     info_btn: {
@@ -299,6 +342,12 @@ const styles = StyleSheet.create({
       marginTop: "1%",
       
   },
+  nexttext: {
+    fontSize:20,
+    color:"white",
+    marginTop: "1%",
+    
+},
   btn_text: {
     fontSize:14,
    
@@ -318,6 +367,14 @@ const styles = StyleSheet.create({
       alignItems: "flex-end",
       justifyContent: "flex-end",
     },
+    view_style2: {height: 100, width:300,
+      flexDirection: 'row',
+       marginTop: "4%",
+      
+       alignItems: "flex-start",
+       justifyContent: "flex-start",
+       marginBottom:"-17%"
+     },
 
   user:{
       backgroundColor:'white',
