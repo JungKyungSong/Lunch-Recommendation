@@ -47,10 +47,10 @@ const Restaurant = ({navigation}) => {
   useEffect(() => {
     if(isMounted.current){
       sendResult();
-      navigation.navigate("Result")
-      // navigation.navigate("Menu", {
-      //   num: select
-      // });
+      //navigation.navigate("Result")
+      navigation.navigate("Menu", {
+        num: select
+      });
     } else {
      isMounted.current = true;
     }
