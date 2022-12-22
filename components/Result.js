@@ -24,31 +24,22 @@ function Result({ navigation }) {
         { id: "4", name: "BHC", image: cafeteria, score: "4.2", review: "16", address: "대현", category: "일식", hash: "#덮밥"},
     ];
 
-    // const getResult = async () => {
-    //     try {
-    //         const response = await fetch(
-    //           "http://127.0.0.1:8080/category/result"
-    //         );
-    //            const json = await response.json();
-    //            setMat1Arr(Object.values(json["맛나샘"]["hotbowl"]))
-    //            setMat2Arr(Object.values(json["맛나샘"]["nodel"]))
-    //            setMat3Arr(Object.values(json["맛나샘"]["soban"]))
-    //            setHan1Arr(Object.values(json["한경관"]["1층 중식"]))
-    //            setHan2Arr(Object.values(json["한경관"]["2층 중식"]))
-    //            setHan3Arr(Object.values(json["한경관"]["2층 석식"]))
-    //            setChung1Arr(Object.values(json["청경관"]["snack"]))
-    //            setBu1Arr(Object.values(json["부를샘"]["chinese"]))
-    //            setBu2Arr(Object.values(json["부를샘"]["western"]))
-    //            setGo1Arr(Object.values(json["고를샘"]["그라탕"]))
-    //            setGo2Arr(Object.values(json["고를샘"]["라이스"]))
-    //            setGo3Arr(Object.values(json["고를샘"]["스파게티"]))
-    //            setGo4Arr(Object.values(json["고를샘"]["피자"]))
-    //        } catch (e) {}
-    //    };
+    const [testArr, setTestArr] = useState([]);
+
+    const getResult = async () => {
+        try {
+            const response = await fetch(
+              "http://127.0.0.1:8080/category/result"
+            );
+               const json = await response.json();
+               setTestArr(Object.values(json["0"]))
+               console.log(testArr)
+           } catch (e) {}
+       };
     
-    //   useEffect(() => {
-    //       getResult();
-    //   }, [])
+      useEffect(() => {
+          getResult();
+      }, [])
 
     return (
         <View style={styles.container}>
