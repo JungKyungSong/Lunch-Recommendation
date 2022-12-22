@@ -46,37 +46,16 @@ function Mypage({ navigation }) {
           } else {
             console.log(res.assets[0])
             const { uri } = res.assets[0]
-            //const { filename } = res.assets[0]
             setImageFile(uri);  
-            //setImageName(filename); 
-            console.log(imageFile)    
-            //console.log(imageName)                                      // useState에 저장한다.
+            console.log(imageFile)                                         // useState에 저장한다.
           }
         })
       }
 
-
-//   const sendResult = async () => {
-//     try {
-//       const response = await fetch("http://127.0.0.1:8080/time/upload", {
-//         method: "POST",
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({
-//           image: imageFile
-//         }), 
-//       }).then(response => console.log(response.status));
-//       setResult(response.status);
-//     } catch (e) {}
-//     };
-
 const sendResult = async () => {
     const formData = new FormData();
-    //const name = Object.values(imageFile["filename"])
-    //const uri = Object.values(imageFile["uri"])
-    //console.log(name)
     console.log("확인")
     console.log(imageFile)
-    //const [, type] = name.split(".");
     formData.append("file", {
       name: "name",
       type: "image/jpeg",
@@ -117,12 +96,12 @@ const sendResult = async () => {
               (<Icons name="meh" size={100} style={{ marginRight: 20 }} />)
               :
               (<Image
-                style={{ width : 100, height: 100}}
+                style={{ width : 370, height: 600, resizeMode:"stretch"}}
                 source={{
                     uri: imageFile
                   }}/>)
           }
-          <Text>hiString</Text>
+          <Text>이걸 눌러서 사진등록</Text>
         </TouchableOpacity>
         </SafeAreaView>
         

@@ -20,7 +20,22 @@ function Detail({ navigation }) {
         { id: "0", name: "미분당", image: cafeteria, score: "4.2", review: "16", address: "연희", category: "일식", hash: "#덮밥"},
     ];
 
-    const [category, setCategory] = useState('diary');
+
+    // const getResult = async () => {
+    //     try {
+    //       const response = await fetch(
+    //         "http://127.0.0.1:8080/cafeteria"
+    //       );
+    //          const json = await response.json();
+    //          setMat1Arr(Object.values(json["맛나샘"]["hotbowl"]))
+    //          setMat2Arr(Object.values(json["맛나샘"]["nodel"]))
+    //          setMat3Arr(Object.values(json["맛나샘"]["soban"]))
+    //      } catch (e) {}
+    //    };
+     
+    //  useEffect(() => {
+    //      getResult();
+    //  }, []);
 
     return (
         <View style={styles.container}>

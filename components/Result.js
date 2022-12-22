@@ -32,14 +32,171 @@ function Result({ navigation }) {
     const [arr14, setArr14] = useState([]);
     const [arr15, setArr15] = useState([]);
     const [arr, setArr] = useState([]);
+    const [more, setMore] = useState("")
+    const [ok, setOk] = useState(false)
+    const isMounted = useRef(false);
+
+    const secondRef = useRef();
 
     const getResult = async () => {
         
         try {
-            const response = await fetch(
-              "http://127.0.0.1:8080/category/result"
-            );
-            const json = await response.json();
+            // const response = await fetch(
+            //   "http://127.0.0.1:8080/category/result"
+            // );
+            //const json = await response.json();
+            const json = {
+                "0": {
+                    "상호명": "미세기",
+                    "도로명주소": "서울특별시 서대문구 성산로22길 4, (창천동)",
+                    "별점": 3.8,
+                    "카테고리": [
+                        "일식",
+                        "초밥"
+                    ],
+                    "리뷰개수": 35
+                },
+                "1": {
+                    "상호명": "기꾸초밥",
+                    "도로명주소": "서울특별시 서대문구 연세로5다길 35, (창천동)",
+                    "별점": 3.7,
+                    "카테고리": [
+                        "일식",
+                        "초밥"
+                    ],
+                    "리뷰개수": 80
+                },
+                "2": {
+                    "상호명": "김판석초밥",
+                    "도로명주소": "서울특별시 서대문구 연세로9길 37, (창천동)",
+                    "별점": 3.8,
+                    "카테고리": [
+                        "일식",
+                        "초밥"
+                    ],
+                    "리뷰개수": 30
+                },
+                "3": {
+                    "상호명": "여우골초밥앤참치",
+                    "도로명주소": "서울특별시 서대문구 연세로5다길 10, (창천동)",
+                    "별점": 3.6,
+                    "카테고리": [
+                        "일식",
+                        "초밥"
+                    ],
+                    "리뷰개수": 112
+                },
+                "4": {
+                    "상호명": "마이도야",
+                    "도로명주소": "서울특별시 서대문구 신촌로 83, (창천동)",
+                    "별점": 3.8,
+                    "카테고리": [
+                        "일식",
+                        "초밥"
+                    ],
+                    "리뷰개수": 2
+                },
+                "5": {
+                    "상호명": "라임",
+                    "도로명주소": "서울특별시 서대문구 연세로4길 41, (창천동)",
+                    "별점": 3.9,
+                    "카테고리": [
+                        "일식",
+                        "초밥"
+                    ],
+                    "리뷰개수": 39
+                },
+                "6": {
+                    "상호명": "교토우마이",
+                    "도로명주소": "서울특별시 서대문구 연세로5가길 19, (창천동)",
+                    "별점": 3.9,
+                    "카테고리": [
+                        "일식",
+                        "일식종합"
+                    ],
+                    "리뷰개수": 3
+                },
+                "7": {
+                    "상호명": "칼",
+                    "도로명주소": "서울특별시 서대문구 연세로4길 42-3, (창천동)",
+                    "별점": 4.1,
+                    "카테고리": [
+                        "일식",
+                        "일식종합"
+                    ],
+                    "리뷰개수": 41
+                },
+                "8": {
+                    "상호명": "최완식참치",
+                    "도로명주소": "서울특별시 서대문구 연세로5나길 6, (창천동)",
+                    "별점": 3.7,
+                    "카테고리": [
+                        "일식",
+                        "횟집"
+                    ],
+                    "리뷰개수": 4
+                },
+                "9": {
+                    "상호명": "미도인",
+                    "도로명주소": "서울특별시 서대문구 명물길 33, (창천동)",
+                    "별점": 3.7,
+                    "카테고리": [
+                        "일식",
+                        "일식종합"
+                    ],
+                    "리뷰개수": 70
+                },
+                "10": {
+                    "상호명": "긴자료코",
+                    "도로명주소": "서울특별시 서대문구 연희로12길 8, (연희동, 연희그린빌라)",
+                    "별점": 3,
+                    "카테고리": [
+                        "일식",
+                        "일식종합"
+                    ],
+                    "리뷰개수": 63
+                },
+                "11": {
+                    "상호명": "주간",
+                    "도로명주소": "서울특별시 서대문구 연세로7안길 31, (창천동)",
+                    "별점": 3.9,
+                    "카테고리": [
+                        "일식",
+                        "횟집"
+                    ],
+                    "리뷰개수": 14
+                },
+                "12": {
+                    "상호명": "제스의부엌옐로서브마린점",
+                    "도로명주소": "서울특별시 서대문구 연세로5다길 35, (창천동)",
+                    "별점": 4,
+                    "카테고리": [
+                        "일식",
+                        "일식종합"
+                    ],
+                    "리뷰개수": 13
+                },
+                "13": {
+                    "상호명": "이자카야류",
+                    "도로명주소": "서울특별시 서대문구 연세로5가길 3, (창천동)",
+                    "별점": 3.6,
+                    "카테고리": [
+                        "일식",
+                        "일식종합"
+                    ],
+                    "리뷰개수": 10
+                },
+                "14": {
+                    "상호명": "와사비횟집",
+                    "도로명주소": "서울특별시 서대문구 연세로4길 48, (창천동)",
+                    "별점": 3.8,
+                    "카테고리": [
+                        "일식",
+                        "횟집"
+                    ],
+                    "리뷰개수": 1
+                }
+            }
             setArr1(Object.values(json["0"]))
             setArr2(Object.values(json["1"]))
             setArr3(Object.values(json["2"]))
@@ -61,6 +218,23 @@ function Result({ navigation }) {
       useEffect(() => {
           getResult();
       }, [])
+
+      const sendResult = async (more) => {
+        try {
+          const response = await fetch(`http://127.0.0.1:8080/category/detail?storename=${more}`, {
+            method: "GET",}).then(response => console.log(response.status));
+          setResult(response.status);
+        } catch (e) {}
+      };
+    
+      useEffect(() => {
+        if(isMounted.current){
+          sendResult(more);
+          navigation.navigate("Detail");
+        } else {
+         isMounted.current = true;
+        }
+      }, [more]);
 
     return (
         <View style={styles.container}>
@@ -85,26 +259,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr1[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr1[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr1[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr1[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr1[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr1[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr1[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr1[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr1[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr1[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -124,26 +298,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr2[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr2[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr2[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr2[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr2[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr2[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr2[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr2[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr2[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr2[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -164,26 +338,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr3[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr3[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr3[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr3[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr3[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr3[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr3[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr3[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr3[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr3[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -203,26 +377,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr4[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr4[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr4[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr4[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr4[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr4[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr4[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr4[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr4[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr4[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -242,26 +416,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr5[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr5[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr5[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr5[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr5[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr5[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr5[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr5[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr5[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr5[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -281,26 +455,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr6[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr6[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr6[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr6[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr6[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr6[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr6[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr6[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr6[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr6[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -320,26 +494,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr7[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr7[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr7[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr7[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr7[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr7[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr7[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr7[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr7[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr7[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -359,26 +533,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr8[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr8[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr8[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr8[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr8[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr8[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr8[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr8[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr8[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr8[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -398,26 +572,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr9[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr9[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr9[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr9[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr9[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr9[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr9[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr9[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr9[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr9[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -437,26 +611,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr10[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr10[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr10[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr10[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr10[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr10[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr10[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr10[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr10[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr10[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -476,26 +650,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr11[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr11[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr11[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr11[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr11[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr11[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr11[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr11[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr11[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr11[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -515,26 +689,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr12[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr12[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr12[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr12[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr12[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr12[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr12[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr12[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr12[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr12[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -554,26 +728,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr13[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr13[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr13[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr13[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr13[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr13[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr13[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr13[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr13[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr13[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -593,26 +767,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr14[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr14[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr14[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr14[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr14[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr14[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr14[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr14[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr14[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr14[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
@@ -632,26 +806,26 @@ function Result({ navigation }) {
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{arr15[3]}</Text>
+                                            <Text style={styles.rt_name}>{arr15[0]}</Text>
                                         </View>
                                         <View>
                                             <Text style={styles.rt_score}>{arr15[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr15[1]}</Text>
+                                            <Text style={styles.rt_review}>{arr15[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr15[0]}</Text>
+                                            <Text style={styles.rt_address}>{arr15[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr15[4]}</Text>
+                                            <Text style={styles.rt_category}>{arr15[3]}</Text>
                                         </View>
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate("Detail")}
+                                            onPress={() => setMore(arr15[0])}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>더 궁금해요</Text>
