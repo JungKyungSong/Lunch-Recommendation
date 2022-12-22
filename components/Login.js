@@ -90,6 +90,7 @@ function Login({ navigation }) {
                                 placeholder="비밀번호"
                                 onChange={(e) => onChange("pw", e)}
                                 value={pw}
+                                secureTextEntry={true}
                                 onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -16,10 +16,7 @@ import yonsei from "../images/yonsei.png";
 
 function Detail({ navigation }) {
 
-    const rtArr = [
-        { id: "0", name: "미분당", image: cafeteria, score: "4.2", review: "16", address: "연희", category: "일식", hash: "#덮밥"},
-    ];
-
+    const [arr, setArr]= useState([]);
 
     // const getResult = async () => {
     //     try {
@@ -32,80 +29,96 @@ function Detail({ navigation }) {
     //          setMat3Arr(Object.values(json["맛나샘"]["soban"]))
     //      } catch (e) {}
     //    };
+
+    const getResult = async () => {
+        const response = await fetch(
+            "http://127.0.0.1:8080/category/result/name"
+          );
+        const json = await response.json();
+        //     const json = {
+        //         "label":
+        //             "음식이 맛있어요",
+        //         "경도": 126.934983987592,
+        //         "도로명주소": "서울특별시 서대문구 연세로5다길 10, (창천동)",
+        //         "리뷰개수": 112,
+        //         "별점": 3.6,
+        //         "상호명": "여우골초밥앤참치",
+        //         "위도": 37.5565120655207,
+        //         "이미지": 
+        //             "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE",
+        //         "정확도": 1,
+        //         "카테고리": [
+        //             "일식",
+        //             "초밥"
+        //         ]
+        //  }
+         console.log(Object.values(json))
+         setArr(Object.values(json))
+       };
      
-    //  useEffect(() => {
-    //      getResult();
-    //  }, []);
+      useEffect(() => {
+          getResult();
+      }, []);
 
     return (
         <View style={styles.container}>
             <StatusBar style="auto"/>
             <View style={styles.title_container}>
-                <Text style={styles.title}>가게정보</Text>
+                <Text style={styles.title}>식당정보</Text>
             </View>
             <View 
                 style={styles.scroll_container}>
                 <View style={styles.rt_container}>
-                    {rtArr.map((array, index) => {
-                        return(
-                            <View
-                                    key={index}
-                                    style={styles.rt_each}
-                            >   
-
+                            
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_name}>{array.name}</Text>
+                                            <Text style={styles.rt_name}>{arr[5]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{array.score}</Text>
+                                            <Text style={styles.rt_score}>{arr[4]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{array.review}</Text>
+                                            <Text style={styles.rt_review}>{arr[3]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{array.address}</Text>
+                                            <Text style={styles.rt_address}>{arr[2]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
-                                        <View>
-                                            <Text style={styles.rt_category}>{array.category}</Text>
-                                        </View>
-                                        <View>
-                                            <Text style={styles.rt_hash}>{array.hash}</Text>
-                                        </View>
-                                        <TouchableOpacity
+                                        {/* <View>
+                                            <Text style={styles.rt_category}>
+                                            {arr[9]}
+                                           </Text>
+                                        </View> */}
+                                        {/* <TouchableOpacity
                                             onPress={() => navigation.navigate("Map")}
                                             style={styles.detail_btn}
                                         >
                                         <Text style={styles.detail_text}>지도보기</Text>
-                                        </TouchableOpacity>
+                                        </TouchableOpacity> */}
                                         
                                     </View>
 
 
                                     <View style={styles.image_container}>
-
                                     <ScrollView style={styles.scrollView}>
-                                    <Image source={cafeteria} style={{width: 200, height: 150}}/>
-                                    <Image source={cafeteria} style={{width: 200, height: 150}}/>
+                                        <Image source={{uri : arr[7]}} style={{width: 400, height: 300}}/>
                                     </ScrollView>
-                                    
                                     </View>
-                                </View>
-                                <View style={styles.info_container}>
-                                    <Text>댓글 리뷰 </Text>
-                                </View>                                   
-                                
-                                
+                                    <View>
+                                        <Text style={styles.rt_label}>{arr[0]}</Text>
+                                    </View>
+                                    <TouchableOpacity
+                                            onPress={() => navigation.navigate("Mypage")}
+                                            style={styles.detail_btn}
+                                        >
+                                        <Text style={styles.detail_text}>마이페이지</Text>
+                                    </TouchableOpacity>
+                                </View>                                                 
                             </View>
-                        );
-                    })
-                    } 
-                </View>
             </View>
 
         </View>
@@ -129,16 +142,18 @@ const styles = StyleSheet.create({
         marginLeft: "20%",
         marginRight: "-10%"
     },
-    title_container: { marginTop: "5%",
-    width: "10%",
-    height: "8%"
-    
+    title_container: { 
+    marginTop: "5%",
+    width: "100%",
+    height: "13%",
+    borderBottomColor: '#EFEFEF',
+    borderBottomWidth: 8,
     },
     title: {
       fontSize: 25,
       fontWeight: "bold",
-   
-      marginTop: "40%",
+      textAlign: "center",
+      marginTop: "14%",
       marginLeft: "3%"
     },
     scroll_container: {
@@ -147,19 +162,15 @@ const styles = StyleSheet.create({
         height: "80%"
     },
     image_container: {
-        marginTop: "10%",
-        width: "100%",
-        height: "3080%",
-        marginLeft: "3%",
-        justifyContent: 'space-between',
-        padding: '1%',
-        marginHorizontal: "35%",
-
+        alignItems: "center",
+        marginTop: "7%",
+        width: "94%",
+        marginHorizontal: "3%",
         flexDirection: 'row'
     },
     info_container: {
-        marginTop: "1%",
-        width: "80%",
+        marginTop: "-10%",
+        width: "100%",
         height: "120%"
     },
     rt_each:{
@@ -169,14 +180,14 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         borderBottomColor: '#EFEFEF',
         borderBottomWidth: 2,
-        paddingTop: "-20%"
+        paddingTop: "-20%",
     },
     rt_name:{
         textAlign: "left",
-        fontSize: 20,
-       
+        fontSize: 25,
+        fontWeight: "bold",
         marginTop: "1%",
-        marginLeft: "5%"
+        marginLeft: "13%"
     },
     rt_score:{
         textAlign: "left",
@@ -194,16 +205,16 @@ const styles = StyleSheet.create({
     },
     rt_address: {
         textAlign: "left",
-        fontSize: 18,
-        marginTop: "30%",
-        marginLeft: "5%"
+        fontSize: 15,
+        marginTop: "5%",
+        marginLeft: "9%"
     },
     rt_category: {
         color: "#939393",
         textAlign: "left",
         fontSize: 17,
-        marginTop: "20%",
-        marginLeft: "5%"
+        marginTop: "10%",
+        marginLeft: "22%",
     },
     rt_hash: {
         color: "#2B82D4",
@@ -220,9 +231,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         width: 90,
-        height: 30,
-        marginLeft: "25%",
+        height: 50,
+        marginLeft: "70%",
         borderRadius: 5,
+        marginTop: "40%"
     },
     detail_text: {
         color: "#2B82D4",
@@ -246,7 +258,13 @@ const styles = StyleSheet.create({
     
         marginHorizontal: 20,
         horizontal:"true"
-      }
+      },
+    rt_label: {
+        textAlign: "left",
+        fontSize: 25,
+        marginTop: "5%",
+        marginLeft: "9%"
+    }
 })
 
 export default Detail;
