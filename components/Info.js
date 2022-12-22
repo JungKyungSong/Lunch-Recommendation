@@ -222,7 +222,7 @@ const Info = ({navigation}) => {
             
 
                 <TouchableOpacity
-                        onPress={() => setOk(true)}
+                        onPress={() => setOk(!ok)}
                         style={styles.login_btn}
                     >
                     <Text style={styles.nexttext}>다음</Text>

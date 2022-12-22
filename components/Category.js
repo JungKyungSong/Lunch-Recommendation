@@ -101,7 +101,7 @@ const Category = ({navigation}) => {
                 <Text>잘 모르시겠다면 번개추천을 눌러주세요</Text>
 
                 <TouchableOpacity
-                        onPress={() => setOk(true)}
+                        onPress={() => setOk(!ok)}
                         style={styles.login_btn}
                     >
                     <Text style={styles.text}>다음</Text>

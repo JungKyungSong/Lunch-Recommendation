@@ -98,7 +98,7 @@ function Login({ navigation }) {
                     </View>
                     <TouchableOpacity
                         onPress={() => 
-                          setOk(true)
+                          setOk(!ok)
                         }
                         style={styles.login_btn}
                     >

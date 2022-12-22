@@ -134,7 +134,7 @@ function Register({ navigation }) {
                                 '회원가입 완료',
                                 '성공적으로 가입되었습니다.',
                                 [
-                                  {text: '확인', onPress:() => setOk(true)},
+                                  {text: '확인', onPress:() => setOk(!ok)},
                                 ]
                               )
                               },

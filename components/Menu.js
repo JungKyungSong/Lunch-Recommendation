@@ -116,7 +116,7 @@ const Menu = ({navigation, route}) => {
                     </View>
                 </ScrollView>
                 <TouchableOpacity
-                        onPress={() => setOk(true)}
+                        onPress={() => setOk(!ok)}
                         style={styles.login_btn}
                     >
                     <Text style={styles.text}>다음</Text>
