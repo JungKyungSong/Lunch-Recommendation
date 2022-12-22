@@ -69,7 +69,7 @@ const Menu = ({navigation}) => {
   const getResult = async () => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:8080/category/Scategory"
+        "http://127.0.0.1:8080/category/Mcategory/get"
       );
          const json = await response.json();
          setNum(Object.values(json["number"]))
