@@ -1,3 +1,5 @@
+import {Component, useState} from 'react';
+import {Image, Button} from 'react-native';
 import React from 'react';
 import {
   StatusBar,
@@ -8,10 +10,13 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
+import main from "../images/main.png"
 
 function Mypage({ navigation }) {
+   
+ 
     return (
-        <SafeAreaView>
+        <View>
             <StatusBar style="auto"/>
             <Text>MYPAGE</Text>
             <TouchableOpacity
@@ -19,7 +24,7 @@ function Mypage({ navigation }) {
             >
             <Text>시작하기</Text>
             </TouchableOpacity>
-        </SafeAreaView>
+        </View>
     );
 }
 
