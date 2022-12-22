@@ -76,7 +76,7 @@ const Info = ({navigation}) => {
                     <Text style={styles.btn_text}>공학원</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick3}
-                    style={[styles.info_btn2,{opacity: (select===3 || select===0)? 1 : 0.2}]}>
+                    style={[styles.info_btn,{opacity: (select===3 || select===0)? 1 : 0.2}]}>
                     <Text style={styles.btn_text}>중앙도서관</Text>
                 </TouchableOpacity>
 
@@ -94,7 +94,7 @@ const Info = ({navigation}) => {
                     <Text style={styles.btn_text}>학생회관</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick6}
-                    style={[styles.info_btn2,{opacity: (select===6 || select===0)? 1 : 0.2}]}>
+                    style={[styles.info_btn,{opacity: (select===6 || select===0)? 1 : 0.2}]}>
                     
                     <Text style={styles.btn_text}>삼성관</Text>
                 </TouchableOpacity>
@@ -113,7 +113,7 @@ const Info = ({navigation}) => {
                     <Text style={styles.btn_text2}>연희관</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick9}
-                    style={[styles.info_btn2,{opacity: (select===9 || select===0)? 1 : 0.2}]}>
+                    style={[styles.info_btn,{opacity: (select===9 || select===0)? 1 : 0.2}]}>
                     
                     <Text style={styles.btn_text}>언더우드관</Text>
                 </TouchableOpacity>
@@ -278,6 +278,7 @@ const styles = StyleSheet.create({
         borderColor: "#92BEE7",
         borderWidth: 4,
         borderRadius: 30,
+        
       },
     login_text: {
       color: "#FFFFFF",
@@ -310,12 +311,12 @@ const styles = StyleSheet.create({
       fontSize:22,
       marginTop: "10%"
   },
-  view_style: {height: 80, width:100,
+  view_style: {height: 100, width:100,
      flexDirection: 'row',
       marginTop: "-7%",
       marginHorizontal: "40%",
       alignItems: "flex-end",
-      justifyContent: "flex-end"
+      justifyContent: "flex-end",
     },
 
   user:{
