@@ -57,7 +57,7 @@ function Login({ navigation }) {
     useEffect(() => {
       if(isMounted.current){
         sendResult();
-        if (parseInt(result) === 200) {
+        if (result == 200) {
           navigation.navigate("Mypage");
         }
         else {
