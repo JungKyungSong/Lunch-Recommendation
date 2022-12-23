@@ -76,10 +76,10 @@ function Detail({ navigation }) {
                                             <Text style={styles.rt_name}>{arr[5]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr[4]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr[4]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr[3]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr[3]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: "bold",
         marginTop: "1%",
-        marginLeft: "13%"
+        marginLeft: "14%"
     },
     rt_score:{
         textAlign: "left",

@@ -74,7 +74,7 @@ const Category = ({navigation}) => {
                 <View style={[styles.category_container,{backgroundColor: select===3 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick3}>
                        <Image source={require('../images/book.png')} style={{width: 70, height: 70}}/>
-                       <Text style={styles.text3}>혼밥</Text>
+                       <Text style={styles.text3_hon}>혼밥</Text>
                         </TouchableOpacity>
                 </View>
                 </View>
@@ -88,7 +88,7 @@ const Category = ({navigation}) => {
                 <View style={[styles.category_container,{backgroundColor: select===5 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick5}>
                        <Image source={require('../images/crown.png')} style={{width: 70, height: 70}}/>
-                       <Text style={styles.text2}>모임</Text>
+                       <Text style={styles.text2_mo}>모임</Text>
                        </TouchableOpacity>
                 </View>
                 <View style={[styles.category_container,{backgroundColor: select===6 ? 'skyblue' : "#FFFFFF"},]}>
@@ -156,6 +156,12 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
+  },
+  text3_hon: {
+    fontSize:22,
+    marginTop: "1%",
+    fontWeight: "bold",
+    paddingLeft: "20%"
   },
   category_container: {
     backgroundColor: "#FFFFFF",
@@ -243,15 +249,20 @@ const styles = StyleSheet.create({
 },
 text3: {
   fontSize:22,
-  marginLeft:"18%",
-  marginTop: "15%",
+  marginLeft:"0%",
+  
   fontWeight: "bold"
 },
 text2: {
   fontSize:22,
   marginTop: "1%",
-  marginLeft:"18%",
   fontWeight: "bold"
+},
+text2_mo: {
+  fontSize:22,
+  marginTop: "1%",
+  fontWeight: "bold",
+  paddingLeft: "20%"
 },
   second_text: {
       fontSize:18,

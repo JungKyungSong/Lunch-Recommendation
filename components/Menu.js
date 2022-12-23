@@ -240,6 +240,16 @@ const styles = StyleSheet.create({
   text: {
     fontSize:22,
     marginTop: "1%"
+},
+image_text: {
+  fontWeight: "bold",
+  fontSize: 25
+
+},
+image: {
+  marginBottom: "7%",
+  width: 120,
+  height: 120
 }
 })
 

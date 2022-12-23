@@ -64,7 +64,7 @@ const Restaurant = ({navigation}) => {
                     style={styles.scroll_container}
                     contentContainerStyle={{ flexGrow: 1, alwaysBounceVertical: false, bounces: false}}
                     >
-                <Text style={styles.second_text}>원하는 유형의 음식점을 선택해주세요.</Text>
+                {/* <Text style={styles.second_text}>원하는 유형의 음식점을 선택해주세요.</Text> */}
                 
                 
                 <View style={{height: 220, flexDirection: 'row'}}>
@@ -202,7 +202,9 @@ const styles = StyleSheet.create({
       color: "#2B82D4",
       textAlignVertical: 'center',
       textAlign: 'center',
-      marginTop: "10%"
+      marginTop: "10%",
+      marginBottom: "-30%"
+
     },
     login_container: {
       backgroundColor: "#FFFFFF",

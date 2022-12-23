@@ -948,7 +948,7 @@ const styles = StyleSheet.create({
         color: "#939393",
         textAlign: "left",
         fontSize: 17,
-        marginTop: "-75%",
+        marginTop: "-50%",
         marginLeft: "5%"
     },
     rt_hash: {
