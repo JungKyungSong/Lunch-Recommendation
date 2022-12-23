@@ -17,6 +17,7 @@ function Login({ navigation }) {
     const [result, setResult] = useState();
     const [ok, setOk] = useState(false);
     const isMounted = useRef(false);
+    const [login, setLogin] = useState("");
 
     const secondRef = useRef();
     const [inputs, setInputs] = useState({
@@ -56,8 +57,9 @@ function Login({ navigation }) {
   
     useEffect(() => {
       if(isMounted.current){
-        sendResult();
-        if (result == 200) {
+        getResult();
+        if (login === "성공") {
+          sendResult();
           navigation.navigate("Mypage");
         }
         else {
@@ -68,6 +70,18 @@ function Login({ navigation }) {
        isMounted.current = true;
       }
     }, [ok]);
+
+    const getResult = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:8080/login"
+        );
+          const json = await response.json();
+          setLogin(Object.values(json))
+          console.log(login);
+      } catch (e) {}
+    };
+ 
 
     return (
         <View style={styles.container}>
