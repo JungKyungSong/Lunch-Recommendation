@@ -649,6 +649,15 @@ const styles = StyleSheet.create({
     },
     cf_menu_detail: {
         color: "#939393"
+    },
+    nexttext: {
+     fontWeight:"bold",
+      fontSize: 18,
+      color: "white"
+    },
+    text: {
+        fontWeight:"bold",
+        fontSize: 18
     }
 })
 

@@ -67,7 +67,7 @@ const Info = ({navigation}) => {
   useEffect(() => {
     if(isMounted.current){
       sendResult();
-      navigation.navigate("Cafeteria");
+      navigation.navigate("Start");
     } else {
      isMounted.current = true;
     }
@@ -223,7 +223,7 @@ const Info = ({navigation}) => {
                 
             </TouchableOpacity>
             <TouchableOpacity
-                        onPress={() => navigation.navigate("Start")}
+                        onPress={() => navigation.navigate("Mypage")}
                         style={styles.register_btn}
                     >
                     <Text style={styles.text_before}>이전</Text>
