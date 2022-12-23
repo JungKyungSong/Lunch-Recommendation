@@ -48,14 +48,7 @@ const Info = ({navigation}) => {
     "7": "경영관"
   }
 
-  const [star1, setStar1] = useState("0")
-  const [star2, setStar2] = useState("1")
-  const [star3, setStar3] = useState("2")
-  const [star4, setStar4] = useState("3")
-  const [star5, setStar5] = useState("4")
-  const [star6, setStar6] = useState("5")
-  const [star7, setStar7] = useState("6")
-  const [star8, setStar8] = useState("7")
+  const [star, setStar] = useState([])
 
   const sendResult = async () => {
     try {
@@ -103,26 +96,31 @@ const Info = ({navigation}) => {
      } catch (e) {}
    };
 
-  //  const getResult3 = async () => {
-  //    try {
-  //      const response = await fetch(
-  //        "http://127.0.0.1:8080/login/nickname"
-  //      );
+   const getResult3 = async () => {
+     try {
+      //  const response = await fetch(
+      //    "http://127.0.0.1:8080/login/nickname"
+      //  );
 
-  //        const json = await response.json();
-  //        const json = {
-  //         "0": "공학관",
-  //         "1": "중앙도서관"
-  //        }
-  //        setNickname(Object.values(json["0"]))
-  //        console.log(nickname)
-  //    } catch (e) {}
-  //  };
+      //    const json = await response.json();
+            const json = {
+                  '0': true,
+                  '1': false,
+                  '2': false,
+                  '3': false,
+                  '4': false,
+                  '5': false,
+                  '6': true,
+                  '7': false
+            }
+         setStar(Object.values(json))
+     } catch (e) {}
+   };
  
     useEffect(() => {
         getResult();
         getResult2();
-        //getResult3()
+        getResult3()
     }, []);
 
     return (
@@ -139,27 +137,27 @@ const Info = ({navigation}) => {
                 <TouchableOpacity onPress={setclick1}
                     style={[styles.info_btn,{opacity: (select===1 || select===0)? 1 : 0.2}]}>                    
                                       <View style = {{flexDirection:"row"}}>
-                    <Text style={styles.btn_text2}>공학관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    <Text style={styles.btn_text2}>공학관</Text><Text style={{height: !star[0] ? 0 : 20, width: !star[0] ? 0 : 20}}>💛</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick2}
                     style={[styles.info_btn,{opacity: (select===2 || select===0)? 1 : 0.2}]}>
                                       <View style = {{flexDirection:"row"}}>
-                    <Text style={styles.btn_text2}>공학원</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    <Text style={styles.btn_text2}>공학원</Text><Text style={{height: !star[1] ? 0 : 20, width: !star[1] ? 0 : 20}}>💛</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick3}
                     style={[styles.info_btn,{opacity: (select===3 || select===0)? 1 : 0.2}]}>
                                       <View style = {{flexDirection:"row"}}>
 
-                    <Text style={styles.btn_text2}>대우관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    <Text style={styles.btn_text2}>대우관</Text><Text style={{height: !star[2]? 0 : 20, width: !star[2] ? 0 : 20}}>💛</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick4}
                     style={[styles.info_btn,{opacity: (select===4 || select===0)? 1 : 0.2}]}>
                     
                     <View style = {{flexDirection:"row"}}>
-                    <Text style={styles.btn_text2}>중앙도서관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    <Text style={styles.btn_text2}>중앙도서관</Text><Text style={{height: !star[3] ? 0 : 20, width: !star[3] ? 0 : 20}}>💛</Text>
 
                     </View>
                 </TouchableOpacity>
@@ -171,27 +169,27 @@ const Info = ({navigation}) => {
                     style={[styles.info_btn,{opacity: (select===5 || select===0)? 1 : 0.2}]}>
                     
                     <View style = {{flexDirection:"row"}}>
-                    <Text style={styles.btn_text2}>삼성관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    <Text style={styles.btn_text2}>삼성관</Text><Text style={{height: !star[4] ? 0 : 20, width: !star[4] ? 0 : 20}}>💛</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick6}
                     style={[styles.info_btn,{opacity: (select===6 || select===0)? 1 : 0.2}]}>
                     
                     <View style = {{flexDirection:"row"}}>
-                    <Text style={styles.btn_text2}>언더우드관</Text><Text style={{height: select===0? 0 : 15, width: select===0? 0 : 15}}>💛</Text>
+                    <Text style={styles.btn_text2}>언더우드관</Text><Text style={{height: !star[5] ? 0 : 15, width: !star[5] ? 0 : 15}}>💛</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick7}
                     style={[styles.info_btn,{opacity: (select===7 || select===0)? 1 : 0.2}]}>
                     
                     <View style = {{flexDirection:"row"}}>
-                    <Text style={styles.btn_text2}>위당관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    <Text style={styles.btn_text2}>위당관</Text><Text style={{height: !star[6] ? 0 : 20, width: !star[6] ? 0 : 20}}>💛</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick8}
                     style={[styles.info_btn,{opacity: (select===8 || select===0)? 1 : 0.2}]}>
                     <View style = {{flexDirection:"row"}}>
-                    <Text style={styles.btn_text2}>경영관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    <Text style={styles.btn_text2}>경영관</Text><Text style={{height: !star[7] ? 0 : 20, width: !star[7] ? 0 : 20}}>💛</Text>
                     </View>
                 </TouchableOpacity>
                 </View>
