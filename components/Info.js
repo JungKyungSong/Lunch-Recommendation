@@ -116,7 +116,7 @@ const Info = ({navigation}) => {
     
         <SafeAreaView style={styles.container}>
           <StatusBar style="auto"/>
-             <Text style={styles.title}>원하는 음식점 찾기</Text>           
+             <Text style={styles.title}>정보 입력</Text>           
             <View style={styles.login_container}>
                 <View style={styles.subtitle}>
                 <Text style={styles.text}>🏫&nbsp;&nbsp;&nbsp;&nbsp;현재 계신 건물은 어디인가요?</Text>
@@ -226,7 +226,7 @@ const Info = ({navigation}) => {
                         onPress={() => navigation.navigate("Start")}
                         style={styles.register_btn}
                     >
-                    <Text style={styles.text}>이전</Text>
+                    <Text style={styles.text_before}>이전</Text>
             </TouchableOpacity>
             </View>
             
@@ -334,7 +334,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       width: "80%",
       height: "5%",
-      marginTop: "5%",
+      marginTop: "4%",
       marginHorizontal: "10%",
       borderColor: "#92BEE7",
       borderWidth: 1,
@@ -380,14 +380,21 @@ const styles = StyleSheet.create({
   },
   text: {
       fontSize:20,
-      marginTop: "1%",
+      marginTop: "15%",
       
   },
+  
   nexttext: {
     fontSize:20,
     color:"white",
-    marginTop: "1%",
+    marginTop: "-1%",
     
+},
+text_before: {
+  fontSize:20,
+  color:"black",
+  marginTop: "1%",
+  
 },
   btn_text: {
     fontSize:14,

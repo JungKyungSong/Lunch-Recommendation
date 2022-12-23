@@ -64,7 +64,7 @@ function Detail({ navigation }) {
         <View style={styles.container}>
             <StatusBar style="auto"/>
             <View style={styles.title_container}>
-                <Text style={styles.title}>식당정보</Text>
+                <Text style={styles.title}>식당 정보</Text>
             </View>
             <View 
                 style={styles.scroll_container}>

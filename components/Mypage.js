@@ -227,10 +227,10 @@ const sendResult = async () => {
 
         <View style={styles.container2}>
         <Text style={styles.text}>즐겨찾는 강의실⭐️</Text>
-            <TouchableOpacity 
+            {/* <TouchableOpacity 
             onPress={() => navigation.navigate("Classroom")}>    
                 <Text style={styles.star}> ⚙️ </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
         <View style={styles.lecture_container}>
         
@@ -552,7 +552,9 @@ const styles = StyleSheet.create({
   text: {
       fontSize: 17,
       fontWeight: "bold",
-      alignItems: "flex-start"
+      alignItems: "flex-start",
+      marginBottom: "3%"
+
     },
   image_text: {
       fontSize: 23,
@@ -678,9 +680,10 @@ const styles = StyleSheet.create({
   view_style: {height: 80, width:100,
       flexDirection: 'row',
        marginTop: "-7%",
-       marginHorizontal: "40%",
-       alignItems: "flex-end",
-       justifyContent: "flex-end"
+       marginHorizontal: "17%",
+       alignItems: "center",
+       justifyContent: "center",
+       paddingTop: "3%"
      },
   line: {
       flexDirection: "row"
