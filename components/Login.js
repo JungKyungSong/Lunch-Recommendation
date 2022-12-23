@@ -43,41 +43,22 @@ function Login({ navigation }) {
 
     const sendResult = async () => {
       try {
-        await fetch("http://127.0.0.1:8080/login", {
+        const response = await fetch("http://127.0.0.1:8080/login", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             username: id,
             password: pw,
-          })
-        }).then((res) => {
-          //status 가 200이면,
-          this.setResult({ isLoginMessage: true });
-        })
-        .catch((err) => {
-          //status가 401이면
-          if (err.message === 'Request failed with status code 401') {
-            this.setResult({ isLoginMessage: false });
-          }
-          //그게 아니면 서버에러
+          }), 
         });
-        
-        //setResult(Object.values(response));
+        setResult(Object.values(response));
       } catch (e) {}
     };
   
     useEffect(() => {
       if(isMounted.current){
         sendResult();
-        console.log(result);
-        if (result[0] == "yes") {
-          navigation.navigate("Mypage");
-        }
-        else {
-          navigation.navigate("Mypage");
-          Alert.alert('회원정보가 일치하지 않습니다.')
-          onReset();
-        }
+        navigation.navigate("Mypage");
       } else {
        isMounted.current = true;
       }
