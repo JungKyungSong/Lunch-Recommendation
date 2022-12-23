@@ -14,7 +14,7 @@ import login_register from "../images/login_register.png"
 
 function Login({ navigation }) {
 
-    const [result, setResult] = useState();
+    const [result, setResult] = useState([]);
     const [ok, setOk] = useState(false);
     const isMounted = useRef(false);
     const [login, setLogin] = useState("");
@@ -50,15 +50,17 @@ function Login({ navigation }) {
             username: id,
             password: pw,
           }), 
-        }).then(response => console.log(response.status));
-        setResult(response.json);
+        });
+        
+        setResult(Object.values(response));
       } catch (e) {}
     };
   
     useEffect(() => {
       if(isMounted.current){
         sendResult();
-        if (result === "yes") {
+        console.log(result);
+        if (result[0] == "yes") {
           navigation.navigate("Mypage");
         }
         else {
