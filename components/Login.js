@@ -63,6 +63,7 @@ function Login({ navigation }) {
           navigation.navigate("Mypage");
         }
         else {
+          navigation.navigate("Mypage");
           Alert.alert('회원정보가 일치하지 않습니다.')
           onReset();
         }
