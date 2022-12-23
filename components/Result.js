@@ -281,7 +281,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr1[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr1[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -320,7 +320,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr2[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr2[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -360,7 +360,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr3[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr3[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -399,7 +399,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr4[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr4[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -438,7 +438,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr5[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr5[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -477,7 +477,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr6[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr6[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -516,7 +516,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr7[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr7[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -555,7 +555,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr8[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr8[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -594,7 +594,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr9[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr9[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -633,7 +633,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr10[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr10[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -672,7 +672,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr11[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr11[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -711,7 +711,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr12[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr12[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -750,7 +750,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr13[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr13[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -789,7 +789,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr14[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr14[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -828,7 +828,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={arr15[5]}></Image>
+                                    <Image style={styles.image} source={{uri : arr15[5]}}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
