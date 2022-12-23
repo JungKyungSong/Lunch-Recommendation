@@ -57,13 +57,12 @@ function Login({ navigation }) {
   
     useEffect(() => {
       if(isMounted.current){
-        if (result === "성공") {
+        if (result === "yes") {
           sendResult();
           navigation.navigate("Mypage");
         }
         else {
           Alert.alert('회원정보가 일치하지 않습니다.')
-          navigation.navigate("Mypage");
           onReset();
         }
       } else {
