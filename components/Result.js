@@ -41,162 +41,176 @@ function Result({ navigation }) {
     const getResult = async () => {
         
         try {
-            // const response = await fetch(
-            //   "http://127.0.0.1:8080/category/result"
-            // );
-            // const json = await response.json();
-            const json = {
-                "0": {
-                    "상호명": "미세기",
-                    "도로명주소": "서울특별시 서대문구 성산로22길 4, (창천동)",
-                    "별점": 3.8,
-                    "카테고리": [
-                        "일식",
-                        "초밥"
-                    ],
-                    "리뷰개수": 35
-                },
-                "1": {
-                    "상호명": "기꾸초밥",
-                    "도로명주소": "서울특별시 서대문구 연세로5다길 35, (창천동)",
-                    "별점": 3.7,
-                    "카테고리": [
-                        "일식",
-                        "초밥"
-                    ],
-                    "리뷰개수": 80
-                },
-                "2": {
-                    "상호명": "김판석초밥",
-                    "도로명주소": "서울특별시 서대문구 연세로9길 37, (창천동)",
-                    "별점": 3.8,
-                    "카테고리": [
-                        "일식",
-                        "초밥"
-                    ],
-                    "리뷰개수": 30
-                },
-                "3": {
-                    "상호명": "여우골초밥앤참치",
-                    "도로명주소": "서울특별시 서대문구 연세로5다길 10, (창천동)",
-                    "별점": 3.6,
-                    "카테고리": [
-                        "일식",
-                        "초밥"
-                    ],
-                    "리뷰개수": 112
-                },
-                "4": {
-                    "상호명": "마이도야",
-                    "도로명주소": "서울특별시 서대문구 신촌로 83, (창천동)",
-                    "별점": 3.8,
-                    "카테고리": [
-                        "일식",
-                        "초밥"
-                    ],
-                    "리뷰개수": 2
-                },
-                "5": {
-                    "상호명": "라임",
-                    "도로명주소": "서울특별시 서대문구 연세로4길 41, (창천동)",
-                    "별점": 3.9,
-                    "카테고리": [
-                        "일식",
-                        "초밥"
-                    ],
-                    "리뷰개수": 39
-                },
-                "6": {
-                    "상호명": "교토우마이",
-                    "도로명주소": "서울특별시 서대문구 연세로5가길 19, (창천동)",
-                    "별점": 3.9,
-                    "카테고리": [
-                        "일식",
-                        "일식종합"
-                    ],
-                    "리뷰개수": 3
-                },
-                "7": {
-                    "상호명": "칼",
-                    "도로명주소": "서울특별시 서대문구 연세로4길 42-3, (창천동)",
-                    "별점": 4.1,
-                    "카테고리": [
-                        "일식",
-                        "일식종합"
-                    ],
-                    "리뷰개수": 41
-                },
-                "8": {
-                    "상호명": "최완식참치",
-                    "도로명주소": "서울특별시 서대문구 연세로5나길 6, (창천동)",
-                    "별점": 3.7,
-                    "카테고리": [
-                        "일식",
-                        "횟집"
-                    ],
-                    "리뷰개수": 4
-                },
-                "9": {
-                    "상호명": "미도인",
-                    "도로명주소": "서울특별시 서대문구 명물길 33, (창천동)",
-                    "별점": 3.7,
-                    "카테고리": [
-                        "일식",
-                        "일식종합"
-                    ],
-                    "리뷰개수": 70
-                },
-                "10": {
-                    "상호명": "긴자료코",
-                    "도로명주소": "서울특별시 서대문구 연희로12길 8, (연희동, 연희그린빌라)",
-                    "별점": 3,
-                    "카테고리": [
-                        "일식",
-                        "일식종합"
-                    ],
-                    "리뷰개수": 63
-                },
-                "11": {
-                    "상호명": "주간",
-                    "도로명주소": "서울특별시 서대문구 연세로7안길 31, (창천동)",
-                    "별점": 3.9,
-                    "카테고리": [
-                        "일식",
-                        "횟집"
-                    ],
-                    "리뷰개수": 14
-                },
-                "12": {
-                    "상호명": "제스의부엌옐로서브마린점",
-                    "도로명주소": "서울특별시 서대문구 연세로5다길 35, (창천동)",
-                    "별점": 4,
-                    "카테고리": [
-                        "일식",
-                        "일식종합"
-                    ],
-                    "리뷰개수": 13
-                },
-                "13": {
-                    "상호명": "이자카야류",
-                    "도로명주소": "서울특별시 서대문구 연세로5가길 3, (창천동)",
-                    "별점": 3.6,
-                    "카테고리": [
-                        "일식",
-                        "일식종합"
-                    ],
-                    "리뷰개수": 10
-                },
-                "14": {
-                    "상호명": "와사비횟집",
-                    "도로명주소": "서울특별시 서대문구 연세로4길 48, (창천동)",
-                    "별점": 3.8,
-                    "카테고리": [
-                        "일식",
-                        "횟집"
-                    ],
-                    "리뷰개수": 1
-                }
-            }
+             const response = await fetch(
+               "http://127.0.0.1:8080/category/result"
+             );
+             const json = await response.json();
+            //const json = {
+            //     "0": {
+            //         "상호명": "미세기",
+            //         "도로명주소": "서울특별시 서대문구 성산로22길 4, (창천동)",
+            //         "별점": 3.8,
+            //         "카테고리": [
+            //             "일식",
+            //             "초밥"
+            //         ],
+            //         "리뷰개수": 35,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "1": {
+            //         "상호명": "기꾸초밥",
+            //         "도로명주소": "서울특별시 서대문구 연세로5다길 35, (창천동)",
+            //         "별점": 3.7,
+            //         "카테고리": [
+            //             "일식",
+            //             "초밥"
+            //         ],
+            //         "리뷰개수": 80,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "2": {
+            //         "상호명": "김판석초밥",
+            //         "도로명주소": "서울특별시 서대문구 연세로9길 37, (창천동)",
+            //         "별점": 3.8,
+            //         "카테고리": [
+            //             "일식",
+            //             "초밥"
+            //         ],
+            //         "리뷰개수": 30,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "3": {
+            //         "상호명": "여우골초밥앤참치",
+            //         "도로명주소": "서울특별시 서대문구 연세로5다길 10, (창천동)",
+            //         "별점": 3.6,
+            //         "카테고리": [
+            //             "일식",
+            //             "초밥"
+            //         ],
+            //         "리뷰개수": 112,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "4": {
+            //         "상호명": "마이도야",
+            //         "도로명주소": "서울특별시 서대문구 신촌로 83, (창천동)",
+            //         "별점": 3.8,
+            //         "카테고리": [
+            //             "일식",
+            //             "초밥"
+            //         ],
+            //         "리뷰개수": 2,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "5": {
+            //         "상호명": "라임",
+            //         "도로명주소": "서울특별시 서대문구 연세로4길 41, (창천동)",
+            //         "별점": 3.9,
+            //         "카테고리": [
+            //             "일식",
+            //             "초밥"
+            //         ],
+            //         "리뷰개수": 39,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "6": {
+            //         "상호명": "교토우마이",
+            //         "도로명주소": "서울특별시 서대문구 연세로5가길 19, (창천동)",
+            //         "별점": 3.9,
+            //         "카테고리": [
+            //             "일식",
+            //             "일식종합"
+            //         ],
+            //         "리뷰개수": 3,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "7": {
+            //         "상호명": "칼",
+            //         "도로명주소": "서울특별시 서대문구 연세로4길 42-3, (창천동)",
+            //         "별점": 4.1,
+            //         "카테고리": [
+            //             "일식",
+            //             "일식종합"
+            //         ],
+            //         "리뷰개수": 41,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "8": {
+            //         "상호명": "최완식참치",
+            //         "도로명주소": "서울특별시 서대문구 연세로5나길 6, (창천동)",
+            //         "별점": 3.7,
+            //         "카테고리": [
+            //             "일식",
+            //             "횟집"
+            //         ],
+            //         "리뷰개수": 4,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "9": {
+            //         "상호명": "미도인",
+            //         "도로명주소": "서울특별시 서대문구 명물길 33, (창천동)",
+            //         "별점": 3.7,
+            //         "카테고리": [
+            //             "일식",
+            //             "일식종합"
+            //         ],
+            //         "리뷰개수": 70
+            //     },
+            //     "10": {
+            //         "상호명": "긴자료코",
+            //         "도로명주소": "서울특별시 서대문구 연희로12길 8, (연희동, 연희그린빌라)",
+            //         "별점": 3,
+            //         "카테고리": [
+            //             "일식",
+            //             "일식종합"
+            //         ],
+            //         "리뷰개수": 63,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "11": {
+            //         "상호명": "주간",
+            //         "도로명주소": "서울특별시 서대문구 연세로7안길 31, (창천동)",
+            //         "별점": 3.9,
+            //         "카테고리": [
+            //             "일식",
+            //             "횟집"
+            //         ],
+            //         "리뷰개수": 14,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "12": {
+            //         "상호명": "제스의부엌옐로서브마린점",
+            //         "도로명주소": "서울특별시 서대문구 연세로5다길 35, (창천동)",
+            //         "별점": 4,
+            //         "카테고리": [
+            //             "일식",
+            //             "일식종합"
+            //         ],
+            //         "리뷰개수": 13,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "13": {
+            //         "상호명": "이자카야류",
+            //         "도로명주소": "서울특별시 서대문구 연세로5가길 3, (창천동)",
+            //         "별점": 3.6,
+            //         "카테고리": [
+            //             "일식",
+            //             "일식종합"
+            //         ],
+            //         "리뷰개수": 10,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     },
+            //     "14": {
+            //         "상호명": "와사비횟집",
+            //         "도로명주소": "서울특별시 서대문구 연세로4길 48, (창천동)",
+            //         "별점": 3.8,
+            //         "카테고리": [
+            //             "일식",
+            //             "횟집"
+            //         ],
+            //         "리뷰개수": 1,
+            //         "이미지": "https://img1.kakaocdn.net/cthumb/local/R0x420/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fplace%2F19EEB5180D974A30AD700C380103B1CE"
+            //     }
+            // }
             setArr1(Object.values(json["0"]))
             setArr2(Object.values(json["1"]))
             setArr3(Object.values(json["2"]))
@@ -267,7 +281,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr1[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -306,7 +320,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr2[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -346,7 +360,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr3[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -385,7 +399,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr4[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -424,7 +438,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr5[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -463,7 +477,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr6[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -502,7 +516,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr7[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -541,7 +555,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr8[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -580,7 +594,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr9[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -619,7 +633,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr10[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -658,7 +672,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr11[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -697,7 +711,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr12[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -736,7 +750,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr13[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -775,7 +789,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr14[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
@@ -814,7 +828,7 @@ function Result({ navigation }) {
                                     style={styles.rt_each}
                             >   
                                 <View style={styles.image_container}>
-                                    <Image style={styles.image} source={cafeteria}></Image>
+                                    <Image style={styles.image} source={arr15[5]}></Image>
                                 </View>
                                 <View style={styles.info_container}>
                                     <View style={styles.line}>
