@@ -98,21 +98,10 @@ const Info = ({navigation}) => {
 
    const getResult3 = async () => {
      try {
-      //  const response = await fetch(
-      //    "http://127.0.0.1:8080/login/nickname"
-      //  );
-
-      //    const json = await response.json();
-            const json = {
-                  '0': true,
-                  '1': false,
-                  '2': false,
-                  '3': false,
-                  '4': false,
-                  '5': false,
-                  '6': true,
-                  '7': false
-            }
+       const response = await fetch(
+         "http://127.0.0.1:8080/login/findbuilding"
+       );
+         const json = await response.json();
          setStar(Object.values(json))
      } catch (e) {}
    };

@@ -62,7 +62,6 @@ function Login({ navigation }) {
         }
         else {
           Alert.alert('회원정보가 일치하지 않습니다.')
-          navigation.navigate("Mypage");
           onReset();
         }
       } else {

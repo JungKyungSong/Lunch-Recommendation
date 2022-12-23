@@ -99,6 +99,7 @@ function Register({ navigation }) {
                                 placeholder="비밀번호"
                                 onChange={(e) => onChange("pw", e)}
                                 value={pw}
+                                secureTextEntry={true}
                                 onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>
@@ -109,6 +110,7 @@ function Register({ navigation }) {
                                 placeholder="비밀번호 확인"
                                 onChange={(e) => onChange("pwc", e)}
                                 value={pwc}
+                                secureTextEntry={true}
                                 onSubmitEditing={() => secondRef.current.focus()}
                             >
                             </TextInput>
@@ -130,13 +132,20 @@ function Register({ navigation }) {
                             '회원가입 하시겠습니까?',
                             [
                               {text: '네', onPress:() =>
-                              Alert.alert(
-                                '회원가입 완료',
-                                '성공적으로 가입되었습니다.',
-                                [
-                                  {text: '확인', onPress:() => setOk(!ok)},
-                                ]
-                              )
+                               pw===pwc ? 
+                                Alert.alert(
+                                  '회원가입 완료',
+                                  '성공적으로 가입되었습니다.',
+                                  [
+                                    {text: '확인', onPress:() => setOk(!ok)},
+                                  ]
+                                ) : Alert.alert(
+                                  '회원가입 실패',
+                                  '비밀번호가 일치하지 않습니다.',
+                                  [
+                                    {text: '확인', onPress:() => onReset()},
+                                  ]
+                                )
                               },
                               {
                                 text: '아니요',
