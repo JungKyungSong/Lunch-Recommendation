@@ -7,7 +7,8 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ImageBackground,
-  TextInput
+  TextInput,
+  Alert
 } from 'react-native';
 import login_register from "../images/login_register.png"
 
@@ -56,7 +57,14 @@ function Login({ navigation }) {
     useEffect(() => {
       if(isMounted.current){
         sendResult();
-        navigation.navigate("Mypage");
+        if (result === 200) {
+          navigation.navigate("Mypage");
+        }
+        else {
+          Alert.alert('회원정보가 일치하지 않습니다.')
+          navigation.navigate("Mypage");
+          onReset();
+        }
       } else {
        isMounted.current = true;
       }

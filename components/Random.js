@@ -242,7 +242,7 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           transform: [{translateX: xPosition}, {rotate: rotateCard}],
         },
       ]}>
-    <Image source = {item.picture} style={{width: 330, height: 384}}/>
+    <Image source = {item.picture} style={{width: 340, height: 410}}/>
     </Animated.View>
   );
 };
@@ -307,6 +307,12 @@ const Random = ({navigation}) => {
         마음에 든다면 오른쪽으로 넘겨 주세요!
       
       </Text>
+      <View style={styles.swipecontainer}>
+      <Text style={styles.swipetext2}>
+      💔💔⬅️⬅️                          ➡️➡️❤️❤️
+      
+      </Text>
+      </View>
       <View style={styles.container}>
         {sampleCardArray.map((item, key) => (
           <SwipeableCard
@@ -381,6 +387,10 @@ const styles = StyleSheet.create({
   swipeText: {
     fontSize: 18,
     textAlign: 'center',
+  }, 
+  swipetext2: {
+    fontSize: 23,
+    textAlign: 'center',
   },
   register_btn: {
     backgroundColor: "#FFFFFF",
@@ -402,7 +412,7 @@ const styles = StyleSheet.create({
     height: "5%",
     marginHorizontal: "10%",
     borderRadius: 5,
-    marginTop: "5%"
+    marginTop: "15%"
   },
   random_container: {
     backgroundColor: "#92BEE7",
@@ -413,6 +423,15 @@ const styles = StyleSheet.create({
     marginHorizontal: "10%",
     borderRadius: 5,
     marginTop: "5%"
+  },
+  swipecontainer: {
+    alignItems: "space-around",
+    justifyContent: "flex-end",
+    width: "90%",
+    height: "10%",
+    borderRadius: 5,
+    marginTop: "-7%",
+    marginHorizontal:"5%"
   },
   random_btn: {
     backgroundColor: "#2B82D4",
