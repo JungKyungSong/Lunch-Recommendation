@@ -51,7 +51,7 @@ function Login({ navigation }) {
             password: pw,
           }), 
         }).then(response => console.log(response.status));
-        setResult(response);
+        setResult(response.json);
       } catch (e) {}
     };
   
