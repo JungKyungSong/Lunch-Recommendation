@@ -275,10 +275,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr1[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr1[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr1[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr1[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr1[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -288,7 +288,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr1[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr1[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr1[0])}
@@ -314,10 +314,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr2[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr2[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr2[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr2[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr2[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -327,7 +327,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr2[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr2[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr2[0])}
@@ -354,10 +354,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr3[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr3[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr3[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr3[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr3[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -367,7 +367,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr3[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr3[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr3[0])}
@@ -393,10 +393,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr4[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr4[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr4[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr4[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr4[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -406,7 +406,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr4[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr4[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr4[0])}
@@ -432,10 +432,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr5[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr5[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr5[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr5[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr5[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -445,7 +445,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr5[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr5[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr5[0])}
@@ -471,10 +471,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr6[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr6[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr6[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr6[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr6[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -484,7 +484,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr6[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr6[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr6[0])}
@@ -510,10 +510,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr7[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr7[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr7[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr7[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr7[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -523,7 +523,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr7[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr7[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr7[0])}
@@ -549,10 +549,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr8[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr8[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr8[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr8[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr8[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -562,7 +562,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr8[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr8[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr8[0])}
@@ -588,10 +588,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr9[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr9[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr9[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr9[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr9[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -601,7 +601,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr9[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr9[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr9[0])}
@@ -627,10 +627,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr10[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr10[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr10[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr10[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr10[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -640,7 +640,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr10[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr10[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr10[0])}
@@ -666,10 +666,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr11[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr11[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr11[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr11[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr11[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -679,7 +679,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr11[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr11[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr11[0])}
@@ -705,10 +705,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr12[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr12[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr12[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr12[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr12[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -718,7 +718,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr12[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr12[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr12[0])}
@@ -744,10 +744,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr13[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr13[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr13[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr13[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr13[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -757,7 +757,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr13[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr13[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr13[0])}
@@ -783,10 +783,10 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr14[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr14[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr14[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr14[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr14[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -796,7 +796,7 @@ function Result({ navigation }) {
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_category}>{arr14[3]}</Text>
+                                            <Text style={styles.rt_category}>🧩{arr14[3]}</Text>
                                         </View>
                                         <TouchableOpacity
                                             onPress={() => setMore(arr14[0])}
@@ -822,15 +822,15 @@ function Result({ navigation }) {
                                             <Text style={styles.rt_name}>{arr15[0]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_score}>{arr15[2]}</Text>
+                                            <Text style={styles.rt_score}>⭐️{arr15[2]}</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.rt_review}>{arr15[4]}</Text>
+                                            <Text style={styles.rt_review}>📝{arr15[4]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
                                         <View>
-                                            <Text style={styles.rt_address}>{arr15[1]}</Text>
+                                            <Text style={styles.rt_address}>🧩{arr15[1]}</Text>
                                         </View>
                                     </View>
                                     <View style={styles.line}>
@@ -945,7 +945,8 @@ const styles = StyleSheet.create({
         marginLeft: "5%"
     },
     line: {
-        flexDirection: "row"
+        flexDirection: "row",
+        alignContent:'flex-end',
     },
     detail_btn: {
         backgroundColor: "#D3E5F5",
@@ -953,7 +954,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         width: 90,
         height: 30,
-        marginLeft: "15%",
+        marginLeft: "10%",
+        marginRight:"4%",
         borderRadius: 5,
         marginTop: "-22%"
     },
