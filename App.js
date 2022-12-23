@@ -14,7 +14,6 @@ import Restaurant from './components/Restaurant';
 import Menu from './components/Menu';
 import Result from './components/Result';
 import Detail from './components/Detail';
-import Map from './components/Map';
 import Random from './components/Random';
 
 
@@ -39,7 +38,6 @@ function App () {
         <Stack.Screen name="Menu" component={Menu} />
         <Stack.Screen name="Result" component={Result} />
         <Stack.Screen name="Detail" component={Detail} />
-        <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="Random" component={Random} />
       </Stack.Navigator>
     </NavigationContainer>

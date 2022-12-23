@@ -17,7 +17,7 @@ function Start({ navigation }) {
             <StatusBar style="auto"/>
             <ImageBackground source={start} style={styles.image}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate("Info")}
+                    onPress={() => navigation.navigate("Result")}
                     style={styles.start_btn}
                 >
                 <Text style={styles.start_text}>시작하기</Text>
