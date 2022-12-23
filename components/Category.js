@@ -60,7 +60,7 @@ const Category = ({navigation}) => {
                 <View style={{height: 200, flexDirection: 'row'}}>
                 <View style={[styles.category_container,{backgroundColor: select===1 ? 'skyblue' : "#FFFFFF"},]}>
                 <TouchableOpacity onPress={setclick1}> 
-                       <Image source={require('../images/carrot.png')} style={{width: 80, height: 100}}/>
+                       <Image source={require('../images/carrot.png')} style={{width: 80, height: 100,marginTop:"6%"}}/>
                        <Text style={styles.text}>다이어트</Text>
                        </TouchableOpacity> 
                        </View>       
@@ -68,13 +68,13 @@ const Category = ({navigation}) => {
                        <View style={[styles.category_container,{backgroundColor: select===2 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick2}>
                        <Image source={require('../images/heart.png')} style={{width: 70, height: 70}}/>
-                       <Text style={styles.text}>데이트</Text>
+                       <Text style={styles.text1}>데이트</Text>
                        </TouchableOpacity>
                 </View>
                 <View style={[styles.category_container,{backgroundColor: select===3 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick3}>
                        <Image source={require('../images/book.png')} style={{width: 70, height: 70}}/>
-                       <Text style={styles.text}>혼밥</Text>
+                       <Text style={styles.text3}>혼밥</Text>
                         </TouchableOpacity>
                 </View>
                 </View>
@@ -88,7 +88,7 @@ const Category = ({navigation}) => {
                 <View style={[styles.category_container,{backgroundColor: select===5 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick5}>
                        <Image source={require('../images/crown.png')} style={{width: 70, height: 70}}/>
-                       <Text style={styles.text}>모임</Text>
+                       <Text style={styles.text2}>모임</Text>
                        </TouchableOpacity>
                 </View>
                 <View style={[styles.category_container,{backgroundColor: select===6 ? 'skyblue' : "#FFFFFF"},]}>
@@ -229,16 +229,29 @@ const styles = StyleSheet.create({
   },
   text: {
       fontSize:22,
-      marginTop: "1%"
+      marginTop: "1%",
+      fontWeight: "bold",
+      marginLeft:"8%",
+      marginBottom: "25%"
+
   },
-  text2: {
+  text1: {
     fontSize:22,
-    marginTop: "1%",
-    color:"white"
+    marginLeft:"10%",
+    marginTop: "15%",
+    fontWeight: "bold"
 },
 text3: {
   fontSize:22,
-  marginTop: "1%"
+  marginLeft:"18%",
+  marginTop: "15%",
+  fontWeight: "bold"
+},
+text2: {
+  fontSize:22,
+  marginTop: "1%",
+  marginLeft:"18%",
+  fontWeight: "bold"
 },
   second_text: {
       fontSize:18,
