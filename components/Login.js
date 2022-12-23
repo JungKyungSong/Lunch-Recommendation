@@ -51,38 +51,25 @@ function Login({ navigation }) {
             password: pw,
           }), 
         }).then(response => console.log(response.status));
-        setResult(response.status);
+        setResult(response);
       } catch (e) {}
     };
   
     useEffect(() => {
       if(isMounted.current){
-        getResult();
-        if (login === "성공") {
+        if (result === "성공") {
           sendResult();
           navigation.navigate("Mypage");
         }
         else {
-          navigation.navigate("Mypage");
           Alert.alert('회원정보가 일치하지 않습니다.')
+          navigation.navigate("Mypage");
           onReset();
         }
       } else {
        isMounted.current = true;
       }
     }, [ok]);
-
-    const getResult = async () => {
-      try {
-        const response = await fetch(
-          "http://127.0.0.1:8080/login"
-        );
-          const json = await response.json();
-          setLogin(Object.values(json))
-          console.log(login);
-      } catch (e) {}
-    };
- 
 
     return (
         <View style={styles.container}>
