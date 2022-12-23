@@ -201,15 +201,18 @@ function Cafeteria({ navigation }) {
                                         <Text style={styles.cf_text}>맛나샘</Text>
                                     </View>
                                     <View style={styles.menu_container}>
+                                    <View style={styles.container4}>
                                         <View style={styles.bf_container}>
                                             <View>
                                                 <Text style={styles.cf_menu}>hotbowl</Text>
                                             </View>
-                                            <View>
+                                            
+                                            <View style={styles.inputcontainer}>
                                                 <Text style={styles.cf_menu_detail}>&nbsp;&nbsp;{mat1Arr[0]}</Text>
                                                 <Text style={styles.cf_menu_detail}>&nbsp;&nbsp;{mat1Arr[1]}</Text>
                                             </View>
                                         </View>
+                                    </View>
                                         <View style={styles.lc_container}>
                                             <View>
                                                 <Text style={styles.cf_menu}>nodel</Text>
@@ -462,15 +465,18 @@ function Cafeteria({ navigation }) {
                     </View>
                 </ScrollView>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate("Category")}
-                >
-                <Text>학식은 지겨워요(질문 추천 버전)</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("Random")}
-                >
-                <Text>학식은 지겨워요(이미지 추천 버전)</Text>
-                </TouchableOpacity>
+                        onPress={() => navigation.navigate("Category")}
+                        style={styles.login_btn}
+                    >
+                    <Text style={styles.nexttext}>학식은 지겨워요(질문 추천)</Text>
+                
+            </TouchableOpacity>
+            <TouchableOpacity
+                        onPress={() => navigation.navigate("Random")}
+                        style={styles.register_btn}
+                    >
+                    <Text style={styles.text}>학식은 지겨워요(이미지 추천)</Text>
+            </TouchableOpacity>
             </ImageBackground>
         </View>
     );
@@ -488,10 +494,10 @@ const styles = StyleSheet.create({
       resizeMode: "cover",
     },
     image:{
-        width: 100,
-        height: 100,
-        marginLeft: "15%",
-        marginRight: "-10%"
+        width: 120,
+        height: 115,
+        marginLeft: "10%",
+        marginRight: "-5%"
     },
     title_container: {
         flexDirection: "row",
@@ -509,12 +515,54 @@ const styles = StyleSheet.create({
         marginTop: "160%",
         marginLeft: "4%"
     },
+    register_btn: {
+        backgroundColor: "#FFFFFF",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "80%",
+        height: "5%",
+        marginTop: "4%",
+        marginBottom:"7%",
+        marginHorizontal: "10%",
+        borderColor: "#92BEE7",
+        borderWidth: 1,
+        borderRadius: 5,
+      },
+    login_btn: {
+        color:'white',
+        backgroundColor: "#2B82D4",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "80%",
+        height: "5%",
+        marginHorizontal: "10%",
+        borderRadius: 5,
+        marginTop: "25%",
+        marginBottom:"-1%"
+      },
     scroll_container: {
-        marginTop: "10%",
+        marginTop: "5%",
+        marginBottom:"-20%",
         width: "100%",
+        height:2000,
+    
+    },
+    container4: {
+        marginTop: "-3%",
+        marginBottom:"-20%",
+        width: "100%",
+        height:60,
+    
+    },
+    inputcontainer: {
+        marginTop: "0%",
+        marginBottom:"10%",
+        width: "50%",
+        height:20000,
+        fontsize:32
     },
     cf_container:{
-        height: 1680
+        height: 1680,
     },
     cf_mat:{
         //backgroundColor: "blue",
@@ -563,17 +611,21 @@ const styles = StyleSheet.create({
     },
     cf_text:{
         textAlign: "left",
-        fontSize: 26,
-        marginTop: "18%",
-        marginLeft: "5%"
+        fontSize: 30,
+        marginTop: "-2%",
+        marginLeft: "2%",
+        fontWeight: "bold",
     },
     menu_container: {
         marginTop: "14%",
-        marginLeft: "-20%"
+        marginLeft: "-20%",
     },
     bf_container: {
         flexDirection: "row",
-        marginTop: "12%"
+        marginLeft:"-1%",
+        marginTop: "-2%",
+        marginHorizontal: "20%",
+        marginVertical:"3%"
     },
     lc_container: {
         flexDirection: "row",

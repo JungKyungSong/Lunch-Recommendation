@@ -74,7 +74,7 @@ const Category = ({navigation}) => {
                 <View style={[styles.category_container,{backgroundColor: select===3 ? 'skyblue' : "#FFFFFF"},]}>
                        <TouchableOpacity onPress={setclick3}>
                        <Image source={require('../images/book.png')} style={{width: 70, height: 70}}/>
-                       <Text style={styles.text}>공부</Text>
+                       <Text style={styles.text}>혼밥</Text>
                         </TouchableOpacity>
                 </View>
                 </View>
