@@ -385,7 +385,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   swipeText: {
-    fontSize: 18,
+    fontSize: 23,
     textAlign: 'center',
   }, 
   swipetext2: {

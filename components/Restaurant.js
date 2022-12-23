@@ -71,7 +71,7 @@ const Restaurant = ({navigation}) => {
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center'}}>
                         <TouchableOpacity onPress={setclick1}>
-                        <Image style={[styles.image,{opacity: (select===1 || select===0)? 1 : 0.2}]} source={require('../images/kfood.png')}/>
+                        <Image style={[styles.image,{opacity: (select===1 || select===0)? 1 : 0.2}]} source={require('../images/0.jpg')}/>
                         </TouchableOpacity>  
                         </View>
                         <View>
@@ -81,7 +81,7 @@ const Restaurant = ({navigation}) => {
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center'}}>
                         <TouchableOpacity onPress={setclick2}>
-                        <Image style={[styles.image,{opacity: (select===2 || select===0)? 1 : 0.2}]} source={require('../images/west.png')}/>
+                        <Image style={[styles.image,{opacity: (select===2 || select===0)? 1 : 0.2}]} source={require('../images/12.jpg')}/>
                         </TouchableOpacity>
                         </View>
                         <View>
@@ -93,7 +93,7 @@ const Restaurant = ({navigation}) => {
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center', }}>
                         <TouchableOpacity onPress={setclick3}>
-                        <Image style={[styles.image,{opacity: (select===3 || select===0)? 1 : 0.2}]} source={require('../images/china.png')}/>
+                        <Image style={[styles.image,{opacity: (select===3 || select===0)? 1 : 0.2}]} source={require('../images/3.jpg')}/>
                         </TouchableOpacity>
                         </View>
                         <View>
@@ -104,7 +104,7 @@ const Restaurant = ({navigation}) => {
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center', }}>
                         <TouchableOpacity onPress={setclick4}>
-                        <Image style={[styles.image,{opacity: (select===4 || select===0)? 1 : 0.2}]} source={require('../images/japan.png')}/>
+                        <Image style={[styles.image,{opacity: (select===4 || select===0)? 1 : 0.2}]} source={require('../images/6.jpg')}/>
                         </TouchableOpacity>
                         </View>
                         
@@ -117,7 +117,7 @@ const Restaurant = ({navigation}) => {
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center', }}>
                         <TouchableOpacity onPress={setclick5}>
-                        <Image style={[styles.image,{opacity: (select===5 || select===0)? 1 : 0.2}]} source={require('../images/bunsik.png')}/>
+                        <Image style={[styles.image,{opacity: (select===5 || select===0)? 1 : 0.2}]} source={require('../images/9.jpg')}/>
                         </TouchableOpacity>
                         </View>
                         <View>
@@ -128,7 +128,7 @@ const Restaurant = ({navigation}) => {
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center', }}>
                         <TouchableOpacity onPress={setclick6}>
-                        <Image style={[styles.image,{opacity: (select===6 || select===0)? 1 : 0.2}]} source={require('../images/fastfood.png')}/>
+                        <Image style={[styles.image,{opacity: (select===6 || select===0)? 1 : 0.2}]} source={require('../images/11.jpg')}/>
                         </TouchableOpacity>
                         </View>
                         
@@ -141,7 +141,7 @@ const Restaurant = ({navigation}) => {
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center', }}>
                         <TouchableOpacity onPress={setclick7}>
-                        <Image style={[styles.image,{opacity: (select===7 || select===0)? 1 : 0.2}]} source={require('../images/chicken.png')}/>
+                        <Image style={[styles.image,{opacity: (select===7 || select===0)? 1 : 0.2}]} source={require('../images/15.jpg')}/>
                         </TouchableOpacity>
                         </View>
                         <View>
@@ -152,7 +152,7 @@ const Restaurant = ({navigation}) => {
                     <View style={{flex: 1, alignItems: "center"}}>
                         <View style={{alignItems: 'center', }}>
                         <TouchableOpacity onPress={setclick8}>
-                        <Image style={[styles.image,{opacity: (select===8 || select===0)? 1 : 0.2}]} source={require('../images/taco.png')}/>
+                        <Image style={[styles.image,{opacity: (select===8 || select===0)? 1 : 0.2}]} source={require('../images/30.jpg')}/>
                         </TouchableOpacity>
                         </View>
                         
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
         marginTop: "1%"
     },
     second_text: {
-        fontSize:18,
+        fontSize:20,
         marginTop: "-25%"
     },
     image_text: {
