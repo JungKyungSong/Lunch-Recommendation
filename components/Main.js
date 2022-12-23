@@ -17,7 +17,7 @@ function Main ({ navigation }) {
       <StatusBar style="auto"/>
       <ImageBackground source={main} style={styles.image}>
         <View>
-          <Text style={styles.title}>고르샘</Text> 
+          <Text style={styles.title}>고르샘~</Text> 
         </View>
         <TouchableOpacity
           onPress={() => navigation.navigate("Login")}
