@@ -57,8 +57,8 @@ function Login({ navigation }) {
   
     useEffect(() => {
       if(isMounted.current){
+        sendResult();
         if (result === "yes") {
-          sendResult();
           navigation.navigate("Mypage");
         }
         else {
