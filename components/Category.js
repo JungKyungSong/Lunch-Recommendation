@@ -104,14 +104,14 @@ const Category = ({navigation}) => {
                         onPress={() => setOk(!ok)}
                         style={styles.login_btn}
                     >
-                    <Text style={styles.text}>다음</Text>
+                    <Text style={styles.text2}>다음</Text>
                 
             </TouchableOpacity>
             <TouchableOpacity
                         onPress={() => navigation.navigate("Cafeteria")}
                         style={styles.register_btn}
                     >
-                    <Text style={styles.text}>이전</Text>
+                    <Text style={styles.text3}>이전</Text>
             </TouchableOpacity>
             </View>
 
@@ -231,6 +231,15 @@ const styles = StyleSheet.create({
       fontSize:22,
       marginTop: "1%"
   },
+  text2: {
+    fontSize:22,
+    marginTop: "1%",
+    color:"white"
+},
+text3: {
+  fontSize:22,
+  marginTop: "1%"
+},
   second_text: {
       fontSize:18,
       marginTop: "-25%"
