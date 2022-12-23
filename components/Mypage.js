@@ -467,6 +467,9 @@ const sendResult = async () => {
           </TouchableOpacity>
 
     </SafeAreaView>
+
+
+
     
 
 

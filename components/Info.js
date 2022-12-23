@@ -138,20 +138,30 @@ const Info = ({navigation}) => {
 
                 <TouchableOpacity onPress={setclick1}
                     style={[styles.info_btn,{opacity: (select===1 || select===0)? 1 : 0.2}]}>                    
-                    <Text style={styles.btn_text}>공학관</Text>
+                                      <View style = {{flexDirection:"row"}}>
+                    <Text style={styles.btn_text2}>공학관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick2}
                     style={[styles.info_btn,{opacity: (select===2 || select===0)? 1 : 0.2}]}>
-                    <Text style={styles.btn_text}>공학원</Text>
+                                      <View style = {{flexDirection:"row"}}>
+                    <Text style={styles.btn_text2}>공학원</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick3}
                     style={[styles.info_btn,{opacity: (select===3 || select===0)? 1 : 0.2}]}>
-                    <Text style={styles.btn_text}>대우관</Text>
+                                      <View style = {{flexDirection:"row"}}>
+
+                    <Text style={styles.btn_text2}>대우관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick4}
                     style={[styles.info_btn,{opacity: (select===4 || select===0)? 1 : 0.2}]}>
                     
-                    <Text style={styles.btn_text}>중앙도서관</Text>
+                    <View style = {{flexDirection:"row"}}>
+                    <Text style={styles.btn_text2}>중앙도서관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+
+                    </View>
                 </TouchableOpacity>
 
                 </View>
@@ -160,22 +170,29 @@ const Info = ({navigation}) => {
                 <TouchableOpacity onPress={setclick5}
                     style={[styles.info_btn,{opacity: (select===5 || select===0)? 1 : 0.2}]}>
                     
-                    <Text style={styles.btn_text}>삼성관</Text>
+                    <View style = {{flexDirection:"row"}}>
+                    <Text style={styles.btn_text2}>삼성관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick6}
                     style={[styles.info_btn,{opacity: (select===6 || select===0)? 1 : 0.2}]}>
                     
-                    <Text style={styles.btn_text}>언더우드관</Text>
+                    <View style = {{flexDirection:"row"}}>
+                    <Text style={styles.btn_text2}>언더우드관</Text><Text style={{height: select===0? 0 : 15, width: select===0? 0 : 15}}>💛</Text>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick7}
                     style={[styles.info_btn,{opacity: (select===7 || select===0)? 1 : 0.2}]}>
                     
-                    <Text style={styles.btn_text}>위당관</Text>
+                    <View style = {{flexDirection:"row"}}>
+                    <Text style={styles.btn_text2}>위당관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={setclick8}
                     style={[styles.info_btn,{opacity: (select===8 || select===0)? 1 : 0.2}]}>
-                    
-                    <Text style={styles.btn_text2}>경영관</Text>
+                    <View style = {{flexDirection:"row"}}>
+                    <Text style={styles.btn_text2}>경영관</Text><Text style={{height: select===0? 0 : 20, width: select===0? 0 : 20}}>💛</Text>
+                    </View>
                 </TouchableOpacity>
                 </View>
                 <View style={styles.subtitle}>
@@ -388,6 +405,10 @@ const styles = StyleSheet.create({
   btn_text: {
     fontSize:14,
    
+},
+btn_text2: {
+  fontSize:11,
+ 
 },
   second_text: {
       fontSize:18,
